@@ -1,0 +1,41 @@
+syntax = "proto3";
+package ocean;
+option go_package = "github.com/nbzhu/ad-api-gateway-proto;proto";
+
+import "conf.proto";
+
+message SharedAdvertiser {
+  int64 shared_advertiser_id = 1;
+  string shared_advertiser_name = 2;
+}
+
+message AwemesData {
+  uint64 advertiser_id = 1;
+  string advertiser_name = 2;
+  uint64 ies_id = 3;
+  string ies_user_name = 4;
+  string aweme_id = 5;
+  string aweme_name = 6;
+  string aweme_avatar = 7;
+  string bind_type = 8;
+  string status = 9;
+  uint32 left_days = 10;
+  string start_time = 11;
+  string shared_advertiser_name = 12;
+  string commerce_user_level = 13;
+  repeated SharedAdvertiser shared_advertisers = 14;
+}
+message AwemesReq {
+  conf.Conf conf = 1;
+  AwemesReqParams params = 2;
+}
+message AwemesReqParams {
+  uint64 advertiser_id = 2;
+}
+
+message AwemesResp {
+  int32 code = 1;
+  string message = 2;
+  string request_id = 3;
+  repeated AwemesData data = 5;
+}

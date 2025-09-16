@@ -1,0 +1,11 @@
+syntax = "proto3";
+package ocean;
+option go_package = "github.com/nbzhu/ad-api-gateway-proto;proto";
+
+import "tools.proto";
+import "status.proto";
+
+service Api {
+  rpc QueueLen (QueueLenReq) returns (QueueLenResp);
+  rpc Awemes (AwemesReq) returns (AwemesResp);
+}

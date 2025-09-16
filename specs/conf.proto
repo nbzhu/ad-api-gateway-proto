@@ -1,0 +1,30 @@
+syntax = "proto3";
+package conf;
+option go_package = "github.com/nbzhu/ad-api-gateway-proto;proto";
+
+// 优先级
+enum Priority {
+  Low = 0;
+  Medium = 1;
+  High = 2;
+}
+
+message AppConf {
+  // 必传，接口QPS限流值，首次请求时初始化限流器，修改qps重启服务生效
+  uint32 qps = 1;
+  // 必传
+  string access_token = 2;
+}
+
+message Conf {
+  // 必传，本次请求的优先级
+  Priority priority = 1;
+  // map的key为应用唯一标识，该map长度大于1时，多应用会自动负载均衡
+  map<uint32, AppConf> access_token_map = 2;
+  // 高优先级队列长度，默认999,注意当队列满时再次请求会报错
+  uint32 high_priority_len = 3;
+  // 中优先级队列长度，默认3999,注意当队列满时再次请求会报错
+  uint32 medium_priority_len = 4;
+  // 低优先级队列长度，默认9999,注意当队列满时再次请求会报错
+  uint32 low_priority_len = 5;
+}

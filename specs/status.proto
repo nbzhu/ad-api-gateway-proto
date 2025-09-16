@@ -1,0 +1,18 @@
+syntax = "proto3";
+package ocean;
+option go_package = "github.com/nbzhu/ad-api-gateway-proto;proto";
+
+import "conf.proto";
+
+message QueueLenReq {
+  // 接口名称=rpc方法名
+  string method = 1;
+  // 必传，本次请求的优先级
+  conf.Priority priority = 2;
+  // 应用编号，默认值不传=0表示使用默认应用。传入特定编号时，各应用使用独立的频控策略
+  uint32 app_no = 3;
+}
+
+message QueueLenResp {
+  int32 length = 3;
+}
