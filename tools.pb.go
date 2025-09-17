@@ -84,7 +84,7 @@ type AwemesData struct {
 	AwemeAvatar          string                 `protobuf:"bytes,7,opt,name=aweme_avatar,json=awemeAvatar,proto3" json:"aweme_avatar,omitempty"`
 	BindType             string                 `protobuf:"bytes,8,opt,name=bind_type,json=bindType,proto3" json:"bind_type,omitempty"`
 	Status               string                 `protobuf:"bytes,9,opt,name=status,proto3" json:"status,omitempty"`
-	LeftDays             uint32                 `protobuf:"varint,10,opt,name=left_days,json=leftDays,proto3" json:"left_days,omitempty"`
+	LeftDays             int32                  `protobuf:"varint,10,opt,name=left_days,json=leftDays,proto3" json:"left_days,omitempty"`
 	StartTime            string                 `protobuf:"bytes,11,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
 	SharedAdvertiserName string                 `protobuf:"bytes,12,opt,name=shared_advertiser_name,json=sharedAdvertiserName,proto3" json:"shared_advertiser_name,omitempty"`
 	CommerceUserLevel    string                 `protobuf:"bytes,13,opt,name=commerce_user_level,json=commerceUserLevel,proto3" json:"commerce_user_level,omitempty"`
@@ -186,7 +186,7 @@ func (x *AwemesData) GetStatus() string {
 	return ""
 }
 
-func (x *AwemesData) GetLeftDays() uint32 {
+func (x *AwemesData) GetLeftDays() int32 {
 	if x != nil {
 		return x.LeftDays
 	}
@@ -407,7 +407,7 @@ const file_tools_proto_rawDesc = "" +
 	"\tbind_type\x18\b \x01(\tR\bbindType\x12\x16\n" +
 	"\x06status\x18\t \x01(\tR\x06status\x12\x1b\n" +
 	"\tleft_days\x18\n" +
-	" \x01(\rR\bleftDays\x12\x1d\n" +
+	" \x01(\x05R\bleftDays\x12\x1d\n" +
 	"\n" +
 	"start_time\x18\v \x01(\tR\tstartTime\x124\n" +
 	"\x16shared_advertiser_name\x18\f \x01(\tR\x14sharedAdvertiserName\x12.\n" +

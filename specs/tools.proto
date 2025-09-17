@@ -19,7 +19,7 @@ message AwemesData {
   string aweme_avatar = 7;
   string bind_type = 8;
   string status = 9;
-  uint32 left_days = 10;
+  int32 left_days = 10;
   string start_time = 11;
   string shared_advertiser_name = 12;
   string commerce_user_level = 13;
