@@ -10,7 +10,7 @@ message QueueLenReq {
   // 必传，本次请求的优先级
   conf.Priority priority = 2;
   // 应用编号，默认值不传=0表示使用默认应用。传入特定编号时，各应用使用独立的频控策略
-  uint32 app_no = 3;
+  uint64 app_no = 3;
 }
 
 message QueueLenResp {

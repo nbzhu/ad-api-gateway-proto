@@ -20,7 +20,7 @@ message Conf {
   // 必传，本次请求的优先级
   Priority priority = 1;
   // map的key为应用唯一标识，该map长度大于1时，多应用会自动负载均衡
-  map<uint32, AppConf> access_token_map = 2;
+  map<uint64, AppConf> access_token_map = 2;
   // 高优先级队列长度，默认999,注意当队列满时再次请求会报错
   uint32 high_priority_len = 3;
   // 中优先级队列长度，默认3999,注意当队列满时再次请求会报错

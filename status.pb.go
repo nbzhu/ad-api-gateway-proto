@@ -28,7 +28,7 @@ type QueueLenReq struct {
 	// 必传，本次请求的优先级
 	Priority Priority `protobuf:"varint,2,opt,name=priority,proto3,enum=conf.Priority" json:"priority,omitempty"`
 	// 应用编号，默认值不传=0表示使用默认应用。传入特定编号时，各应用使用独立的频控策略
-	AppNo         uint32 `protobuf:"varint,3,opt,name=app_no,json=appNo,proto3" json:"app_no,omitempty"`
+	AppNo         uint64 `protobuf:"varint,3,opt,name=app_no,json=appNo,proto3" json:"app_no,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -77,7 +77,7 @@ func (x *QueueLenReq) GetPriority() Priority {
 	return Priority_Low
 }
 
-func (x *QueueLenReq) GetAppNo() uint32 {
+func (x *QueueLenReq) GetAppNo() uint64 {
 	if x != nil {
 		return x.AppNo
 	}
@@ -137,7 +137,7 @@ const file_status_proto_rawDesc = "" +
 	"\vQueueLenReq\x12\x16\n" +
 	"\x06method\x18\x01 \x01(\tR\x06method\x12*\n" +
 	"\bpriority\x18\x02 \x01(\x0e2\x0e.conf.PriorityR\bpriority\x12\x15\n" +
-	"\x06app_no\x18\x03 \x01(\rR\x05appNo\"&\n" +
+	"\x06app_no\x18\x03 \x01(\x04R\x05appNo\"&\n" +
 	"\fQueueLenResp\x12\x16\n" +
 	"\x06length\x18\x03 \x01(\x05R\x06lengthB-Z+github.com/nbzhu/ad-api-gateway-proto;protob\x06proto3"
 

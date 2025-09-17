@@ -130,7 +130,7 @@ type Conf struct {
 	// 必传，本次请求的优先级
 	Priority Priority `protobuf:"varint,1,opt,name=priority,proto3,enum=conf.Priority" json:"priority,omitempty"`
 	// map的key为应用唯一标识，该map长度大于1时，多应用会自动负载均衡
-	AccessTokenMap map[uint32]*AppConf `protobuf:"bytes,2,rep,name=access_token_map,json=accessTokenMap,proto3" json:"access_token_map,omitempty" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	AccessTokenMap map[uint64]*AppConf `protobuf:"bytes,2,rep,name=access_token_map,json=accessTokenMap,proto3" json:"access_token_map,omitempty" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// 高优先级队列长度，默认999,注意当队列满时再次请求会报错
 	HighPriorityLen uint32 `protobuf:"varint,3,opt,name=high_priority_len,json=highPriorityLen,proto3" json:"high_priority_len,omitempty"`
 	// 中优先级队列长度，默认3999,注意当队列满时再次请求会报错
@@ -178,7 +178,7 @@ func (x *Conf) GetPriority() Priority {
 	return Priority_Low
 }
 
-func (x *Conf) GetAccessTokenMap() map[uint32]*AppConf {
+func (x *Conf) GetAccessTokenMap() map[uint64]*AppConf {
 	if x != nil {
 		return x.AccessTokenMap
 	}
@@ -222,7 +222,7 @@ const file_conf_proto_rawDesc = "" +
 	"\x13medium_priority_len\x18\x04 \x01(\rR\x11mediumPriorityLen\x12(\n" +
 	"\x10low_priority_len\x18\x05 \x01(\rR\x0elowPriorityLen\x1aP\n" +
 	"\x13AccessTokenMapEntry\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\rR\x03key\x12#\n" +
+	"\x03key\x18\x01 \x01(\x04R\x03key\x12#\n" +
 	"\x05value\x18\x02 \x01(\v2\r.conf.AppConfR\x05value:\x028\x01*)\n" +
 	"\bPriority\x12\a\n" +
 	"\x03Low\x10\x00\x12\n" +
