@@ -27,8 +27,8 @@ type QueueLenReq struct {
 	Method string `protobuf:"bytes,1,opt,name=method,proto3" json:"method,omitempty"`
 	// 必传，本次请求的优先级
 	Priority Priority `protobuf:"varint,2,opt,name=priority,proto3,enum=conf.Priority" json:"priority,omitempty"`
-	// 应用编号，默认值不传=0表示使用默认应用。传入特定编号时，各应用使用独立的频控策略
-	AppNo         uint64 `protobuf:"varint,3,opt,name=app_no,json=appNo,proto3" json:"app_no,omitempty"`
+	// 开发者唯一标识，默认值不传表示系统使用唯一应用。传入特定编号时，各应用使用独立的频控策略
+	DevKey        string `protobuf:"bytes,3,opt,name=dev_key,json=devKey,proto3" json:"dev_key,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -77,11 +77,11 @@ func (x *QueueLenReq) GetPriority() Priority {
 	return Priority_Low
 }
 
-func (x *QueueLenReq) GetAppNo() uint64 {
+func (x *QueueLenReq) GetDevKey() string {
 	if x != nil {
-		return x.AppNo
+		return x.DevKey
 	}
-	return 0
+	return ""
 }
 
 type QueueLenResp struct {
@@ -133,11 +133,11 @@ var File_status_proto protoreflect.FileDescriptor
 const file_status_proto_rawDesc = "" +
 	"\n" +
 	"\fstatus.proto\x12\x05ocean\x1a\n" +
-	"conf.proto\"h\n" +
+	"conf.proto\"j\n" +
 	"\vQueueLenReq\x12\x16\n" +
 	"\x06method\x18\x01 \x01(\tR\x06method\x12*\n" +
-	"\bpriority\x18\x02 \x01(\x0e2\x0e.conf.PriorityR\bpriority\x12\x15\n" +
-	"\x06app_no\x18\x03 \x01(\x04R\x05appNo\"&\n" +
+	"\bpriority\x18\x02 \x01(\x0e2\x0e.conf.PriorityR\bpriority\x12\x17\n" +
+	"\adev_key\x18\x03 \x01(\tR\x06devKey\"&\n" +
 	"\fQueueLenResp\x12\x16\n" +
 	"\x06length\x18\x03 \x01(\x05R\x06lengthB-Z+github.com/nbzhu/ad-api-gateway-proto;protob\x06proto3"
 

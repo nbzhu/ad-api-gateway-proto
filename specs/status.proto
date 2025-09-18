@@ -9,8 +9,8 @@ message QueueLenReq {
   string method = 1;
   // 必传，本次请求的优先级
   conf.Priority priority = 2;
-  // 应用编号，默认值不传=0表示使用默认应用。传入特定编号时，各应用使用独立的频控策略
-  uint64 app_no = 3;
+  // 开发者唯一标识，默认值不传表示系统使用唯一应用。传入特定编号时，各应用使用独立的频控策略
+  string dev_key = 3;
 }
 
 message QueueLenResp {
