@@ -4,8 +4,10 @@ option go_package = "github.com/nbzhu/ad-api-gateway-proto;proto";
 
 import "tools.proto";
 import "status.proto";
+import "material.proto";
 
 service Api {
   rpc QueueLen (QueueLenReq) returns (QueueLenResp);
   rpc Awemes (AwemesReq) returns (AwemesResp);
+  rpc VideoCoverSuggest (VideoCoverSuggestReq) returns (VideoCoverSuggestResp);
 }

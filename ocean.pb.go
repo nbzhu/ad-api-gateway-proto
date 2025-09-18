@@ -24,24 +24,29 @@ var File_ocean_proto protoreflect.FileDescriptor
 
 const file_ocean_proto_rawDesc = "" +
 	"\n" +
-	"\vocean.proto\x12\x05ocean\x1a\vtools.proto\x1a\fstatus.proto2i\n" +
+	"\vocean.proto\x12\x05ocean\x1a\vtools.proto\x1a\fstatus.proto\x1a\x0ematerial.proto2\xb9\x01\n" +
 	"\x03Api\x123\n" +
 	"\bQueueLen\x12\x12.ocean.QueueLenReq\x1a\x13.ocean.QueueLenResp\x12-\n" +
-	"\x06Awemes\x12\x10.ocean.AwemesReq\x1a\x11.ocean.AwemesRespB-Z+github.com/nbzhu/ad-api-gateway-proto;protob\x06proto3"
+	"\x06Awemes\x12\x10.ocean.AwemesReq\x1a\x11.ocean.AwemesResp\x12N\n" +
+	"\x11VideoCoverSuggest\x12\x1b.ocean.VideoCoverSuggestReq\x1a\x1c.ocean.VideoCoverSuggestRespB-Z+github.com/nbzhu/ad-api-gateway-proto;protob\x06proto3"
 
 var file_ocean_proto_goTypes = []any{
-	(*QueueLenReq)(nil),  // 0: ocean.QueueLenReq
-	(*AwemesReq)(nil),    // 1: ocean.AwemesReq
-	(*QueueLenResp)(nil), // 2: ocean.QueueLenResp
-	(*AwemesResp)(nil),   // 3: ocean.AwemesResp
+	(*QueueLenReq)(nil),           // 0: ocean.QueueLenReq
+	(*AwemesReq)(nil),             // 1: ocean.AwemesReq
+	(*VideoCoverSuggestReq)(nil),  // 2: ocean.VideoCoverSuggestReq
+	(*QueueLenResp)(nil),          // 3: ocean.QueueLenResp
+	(*AwemesResp)(nil),            // 4: ocean.AwemesResp
+	(*VideoCoverSuggestResp)(nil), // 5: ocean.VideoCoverSuggestResp
 }
 var file_ocean_proto_depIdxs = []int32{
 	0, // 0: ocean.Api.QueueLen:input_type -> ocean.QueueLenReq
 	1, // 1: ocean.Api.Awemes:input_type -> ocean.AwemesReq
-	2, // 2: ocean.Api.QueueLen:output_type -> ocean.QueueLenResp
-	3, // 3: ocean.Api.Awemes:output_type -> ocean.AwemesResp
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
+	2, // 2: ocean.Api.VideoCoverSuggest:input_type -> ocean.VideoCoverSuggestReq
+	3, // 3: ocean.Api.QueueLen:output_type -> ocean.QueueLenResp
+	4, // 4: ocean.Api.Awemes:output_type -> ocean.AwemesResp
+	5, // 5: ocean.Api.VideoCoverSuggest:output_type -> ocean.VideoCoverSuggestResp
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -54,6 +59,7 @@ func file_ocean_proto_init() {
 	}
 	file_tools_proto_init()
 	file_status_proto_init()
+	file_material_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

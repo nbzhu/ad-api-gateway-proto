@@ -1,0 +1,32 @@
+syntax = "proto3";
+package ocean;
+option go_package = "github.com/nbzhu/ad-api-gateway-proto;proto";
+
+import "conf.proto";
+
+message VideoCoverSuggestList {
+  string id = 1;
+  uint32 width = 2;
+  uint32 height = 3;
+  string url = 4;
+}
+
+message VideoCoverSuggestData {
+  string status = 1;
+  repeated VideoCoverSuggestList list = 2;
+}
+message VideoCoverSuggestReq {
+  conf.Conf conf = 1;
+  VideoCoverSuggestReqParams params = 2;
+}
+message VideoCoverSuggestReqParams {
+  uint64 advertiser_id = 1;
+  string video_id = 2;
+}
+
+message VideoCoverSuggestResp {
+  int32 code = 1;
+  string message = 2;
+  string request_id = 3;
+  VideoCoverSuggestData data = 4;
+}
