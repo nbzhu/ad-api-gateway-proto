@@ -313,6 +313,294 @@ func (x *VideoCoverSuggestResp) GetData() *VideoCoverSuggestData {
 	return nil
 }
 
+type FileImageAdReq struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Conf          *Conf                  `protobuf:"bytes,1,opt,name=conf,proto3" json:"conf,omitempty"`
+	Params        *FileImageAdReqParams  `protobuf:"bytes,2,opt,name=params,proto3" json:"params,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FileImageAdReq) Reset() {
+	*x = FileImageAdReq{}
+	mi := &file_material_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FileImageAdReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FileImageAdReq) ProtoMessage() {}
+
+func (x *FileImageAdReq) ProtoReflect() protoreflect.Message {
+	mi := &file_material_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FileImageAdReq.ProtoReflect.Descriptor instead.
+func (*FileImageAdReq) Descriptor() ([]byte, []int) {
+	return file_material_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *FileImageAdReq) GetConf() *Conf {
+	if x != nil {
+		return x.Conf
+	}
+	return nil
+}
+
+func (x *FileImageAdReq) GetParams() *FileImageAdReqParams {
+	if x != nil {
+		return x.Params
+	}
+	return nil
+}
+
+type FileImageAdReqParams struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	AdvertiserId  uint64                 `protobuf:"varint,1,opt,name=advertiser_id,json=advertiserId,proto3" json:"advertiser_id,omitempty"`
+	ImageUrl      string                 `protobuf:"bytes,2,opt,name=image_url,json=imageUrl,proto3" json:"image_url,omitempty"`
+	Filename      string                 `protobuf:"bytes,3,opt,name=filename,proto3" json:"filename,omitempty"`
+	IsAigc        bool                   `protobuf:"varint,4,opt,name=is_aigc,json=isAigc,proto3" json:"is_aigc,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FileImageAdReqParams) Reset() {
+	*x = FileImageAdReqParams{}
+	mi := &file_material_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FileImageAdReqParams) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FileImageAdReqParams) ProtoMessage() {}
+
+func (x *FileImageAdReqParams) ProtoReflect() protoreflect.Message {
+	mi := &file_material_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FileImageAdReqParams.ProtoReflect.Descriptor instead.
+func (*FileImageAdReqParams) Descriptor() ([]byte, []int) {
+	return file_material_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *FileImageAdReqParams) GetAdvertiserId() uint64 {
+	if x != nil {
+		return x.AdvertiserId
+	}
+	return 0
+}
+
+func (x *FileImageAdReqParams) GetImageUrl() string {
+	if x != nil {
+		return x.ImageUrl
+	}
+	return ""
+}
+
+func (x *FileImageAdReqParams) GetFilename() string {
+	if x != nil {
+		return x.Filename
+	}
+	return ""
+}
+
+func (x *FileImageAdReqParams) GetIsAigc() bool {
+	if x != nil {
+		return x.IsAigc
+	}
+	return false
+}
+
+type FileImageAdResp struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Code          int32                  `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	RequestId     string                 `protobuf:"bytes,3,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+	Data          *FileImageAdData       `protobuf:"bytes,4,opt,name=data,proto3" json:"data,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FileImageAdResp) Reset() {
+	*x = FileImageAdResp{}
+	mi := &file_material_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FileImageAdResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FileImageAdResp) ProtoMessage() {}
+
+func (x *FileImageAdResp) ProtoReflect() protoreflect.Message {
+	mi := &file_material_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FileImageAdResp.ProtoReflect.Descriptor instead.
+func (*FileImageAdResp) Descriptor() ([]byte, []int) {
+	return file_material_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *FileImageAdResp) GetCode() int32 {
+	if x != nil {
+		return x.Code
+	}
+	return 0
+}
+
+func (x *FileImageAdResp) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *FileImageAdResp) GetRequestId() string {
+	if x != nil {
+		return x.RequestId
+	}
+	return ""
+}
+
+func (x *FileImageAdResp) GetData() *FileImageAdData {
+	if x != nil {
+		return x.Data
+	}
+	return nil
+}
+
+type FileImageAdData struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Size          uint32                 `protobuf:"varint,2,opt,name=size,proto3" json:"size,omitempty"`
+	Width         uint32                 `protobuf:"varint,3,opt,name=width,proto3" json:"width,omitempty"`
+	Height        uint32                 `protobuf:"varint,4,opt,name=height,proto3" json:"height,omitempty"`
+	Url           string                 `protobuf:"bytes,5,opt,name=url,proto3" json:"url,omitempty"`
+	Format        string                 `protobuf:"bytes,6,opt,name=format,proto3" json:"format,omitempty"`
+	Signature     string                 `protobuf:"bytes,7,opt,name=signature,proto3" json:"signature,omitempty"`
+	MaterialId    uint64                 `protobuf:"varint,8,opt,name=material_id,json=materialId,proto3" json:"material_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FileImageAdData) Reset() {
+	*x = FileImageAdData{}
+	mi := &file_material_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FileImageAdData) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FileImageAdData) ProtoMessage() {}
+
+func (x *FileImageAdData) ProtoReflect() protoreflect.Message {
+	mi := &file_material_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FileImageAdData.ProtoReflect.Descriptor instead.
+func (*FileImageAdData) Descriptor() ([]byte, []int) {
+	return file_material_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *FileImageAdData) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *FileImageAdData) GetSize() uint32 {
+	if x != nil {
+		return x.Size
+	}
+	return 0
+}
+
+func (x *FileImageAdData) GetWidth() uint32 {
+	if x != nil {
+		return x.Width
+	}
+	return 0
+}
+
+func (x *FileImageAdData) GetHeight() uint32 {
+	if x != nil {
+		return x.Height
+	}
+	return 0
+}
+
+func (x *FileImageAdData) GetUrl() string {
+	if x != nil {
+		return x.Url
+	}
+	return ""
+}
+
+func (x *FileImageAdData) GetFormat() string {
+	if x != nil {
+		return x.Format
+	}
+	return ""
+}
+
+func (x *FileImageAdData) GetSignature() string {
+	if x != nil {
+		return x.Signature
+	}
+	return ""
+}
+
+func (x *FileImageAdData) GetMaterialId() uint64 {
+	if x != nil {
+		return x.MaterialId
+	}
+	return 0
+}
+
 var File_material_proto protoreflect.FileDescriptor
 
 const file_material_proto_rawDesc = "" +
@@ -339,7 +627,32 @@ const file_material_proto_rawDesc = "" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\x03 \x01(\tR\trequestId\x120\n" +
-	"\x04data\x18\x04 \x01(\v2\x1c.ocean.VideoCoverSuggestDataR\x04dataB-Z+github.com/nbzhu/ad-api-gateway-proto;protob\x06proto3"
+	"\x04data\x18\x04 \x01(\v2\x1c.ocean.VideoCoverSuggestDataR\x04data\"e\n" +
+	"\x0eFileImageAdReq\x12\x1e\n" +
+	"\x04conf\x18\x01 \x01(\v2\n" +
+	".conf.ConfR\x04conf\x123\n" +
+	"\x06params\x18\x02 \x01(\v2\x1b.ocean.FileImageAdReqParamsR\x06params\"\x8d\x01\n" +
+	"\x14FileImageAdReqParams\x12#\n" +
+	"\radvertiser_id\x18\x01 \x01(\x04R\fadvertiserId\x12\x1b\n" +
+	"\timage_url\x18\x02 \x01(\tR\bimageUrl\x12\x1a\n" +
+	"\bfilename\x18\x03 \x01(\tR\bfilename\x12\x17\n" +
+	"\ais_aigc\x18\x04 \x01(\bR\x06isAigc\"\x8a\x01\n" +
+	"\x0fFileImageAdResp\x12\x12\n" +
+	"\x04code\x18\x01 \x01(\x05R\x04code\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\x12\x1d\n" +
+	"\n" +
+	"request_id\x18\x03 \x01(\tR\trequestId\x12*\n" +
+	"\x04data\x18\x04 \x01(\v2\x16.ocean.FileImageAdDataR\x04data\"\xcc\x01\n" +
+	"\x0fFileImageAdData\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
+	"\x04size\x18\x02 \x01(\rR\x04size\x12\x14\n" +
+	"\x05width\x18\x03 \x01(\rR\x05width\x12\x16\n" +
+	"\x06height\x18\x04 \x01(\rR\x06height\x12\x10\n" +
+	"\x03url\x18\x05 \x01(\tR\x03url\x12\x16\n" +
+	"\x06format\x18\x06 \x01(\tR\x06format\x12\x1c\n" +
+	"\tsignature\x18\a \x01(\tR\tsignature\x12\x1f\n" +
+	"\vmaterial_id\x18\b \x01(\x04R\n" +
+	"materialIdB-Z+github.com/nbzhu/ad-api-gateway-proto;protob\x06proto3"
 
 var (
 	file_material_proto_rawDescOnce sync.Once
@@ -353,25 +666,32 @@ func file_material_proto_rawDescGZIP() []byte {
 	return file_material_proto_rawDescData
 }
 
-var file_material_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_material_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_material_proto_goTypes = []any{
 	(*VideoCoverSuggestList)(nil),      // 0: ocean.VideoCoverSuggestList
 	(*VideoCoverSuggestData)(nil),      // 1: ocean.VideoCoverSuggestData
 	(*VideoCoverSuggestReq)(nil),       // 2: ocean.VideoCoverSuggestReq
 	(*VideoCoverSuggestReqParams)(nil), // 3: ocean.VideoCoverSuggestReqParams
 	(*VideoCoverSuggestResp)(nil),      // 4: ocean.VideoCoverSuggestResp
-	(*Conf)(nil),                       // 5: conf.Conf
+	(*FileImageAdReq)(nil),             // 5: ocean.FileImageAdReq
+	(*FileImageAdReqParams)(nil),       // 6: ocean.FileImageAdReqParams
+	(*FileImageAdResp)(nil),            // 7: ocean.FileImageAdResp
+	(*FileImageAdData)(nil),            // 8: ocean.FileImageAdData
+	(*Conf)(nil),                       // 9: conf.Conf
 }
 var file_material_proto_depIdxs = []int32{
 	0, // 0: ocean.VideoCoverSuggestData.list:type_name -> ocean.VideoCoverSuggestList
-	5, // 1: ocean.VideoCoverSuggestReq.conf:type_name -> conf.Conf
+	9, // 1: ocean.VideoCoverSuggestReq.conf:type_name -> conf.Conf
 	3, // 2: ocean.VideoCoverSuggestReq.params:type_name -> ocean.VideoCoverSuggestReqParams
 	1, // 3: ocean.VideoCoverSuggestResp.data:type_name -> ocean.VideoCoverSuggestData
-	4, // [4:4] is the sub-list for method output_type
-	4, // [4:4] is the sub-list for method input_type
-	4, // [4:4] is the sub-list for extension type_name
-	4, // [4:4] is the sub-list for extension extendee
-	0, // [0:4] is the sub-list for field type_name
+	9, // 4: ocean.FileImageAdReq.conf:type_name -> conf.Conf
+	6, // 5: ocean.FileImageAdReq.params:type_name -> ocean.FileImageAdReqParams
+	8, // 6: ocean.FileImageAdResp.data:type_name -> ocean.FileImageAdData
+	7, // [7:7] is the sub-list for method output_type
+	7, // [7:7] is the sub-list for method input_type
+	7, // [7:7] is the sub-list for extension type_name
+	7, // [7:7] is the sub-list for extension extendee
+	0, // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_material_proto_init() }
@@ -386,7 +706,7 @@ func file_material_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_material_proto_rawDesc), len(file_material_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

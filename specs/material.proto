@@ -30,3 +30,34 @@ message VideoCoverSuggestResp {
   string request_id = 3;
   VideoCoverSuggestData data = 4;
 }
+
+message FileImageAdReq {
+  conf.Conf conf = 1;
+  FileImageAdReqParams params = 2;
+}
+
+message FileImageAdReqParams {
+  uint64 advertiser_id = 1;
+  string image_url = 2;
+  string filename = 3;
+  bool is_aigc = 4;
+}
+
+
+message FileImageAdResp {
+  int32 code = 1;
+  string message = 2;
+  string request_id = 3;
+  FileImageAdData data = 4;
+}
+
+message FileImageAdData {
+  string id = 1;
+  uint32 size = 2;
+  uint32 width = 3;
+  uint32 height = 4;
+  string url = 5;
+  string format = 6;
+  string signature = 7;
+  uint64 material_id = 8;
+}

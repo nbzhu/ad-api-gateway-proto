@@ -10,4 +10,5 @@ service Api {
   rpc QueueLen (QueueLenReq) returns (QueueLenResp);
   rpc Awemes (AwemesReq) returns (AwemesResp);
   rpc VideoCoverSuggest (VideoCoverSuggestReq) returns (VideoCoverSuggestResp);
+  rpc FileImageAd (FileImageAdReq) returns (FileImageAdResp);
 }

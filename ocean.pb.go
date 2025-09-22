@@ -24,29 +24,34 @@ var File_ocean_proto protoreflect.FileDescriptor
 
 const file_ocean_proto_rawDesc = "" +
 	"\n" +
-	"\vocean.proto\x12\x05ocean\x1a\vtools.proto\x1a\fstatus.proto\x1a\x0ematerial.proto2\xb9\x01\n" +
+	"\vocean.proto\x12\x05ocean\x1a\vtools.proto\x1a\fstatus.proto\x1a\x0ematerial.proto2\xf7\x01\n" +
 	"\x03Api\x123\n" +
 	"\bQueueLen\x12\x12.ocean.QueueLenReq\x1a\x13.ocean.QueueLenResp\x12-\n" +
 	"\x06Awemes\x12\x10.ocean.AwemesReq\x1a\x11.ocean.AwemesResp\x12N\n" +
-	"\x11VideoCoverSuggest\x12\x1b.ocean.VideoCoverSuggestReq\x1a\x1c.ocean.VideoCoverSuggestRespB-Z+github.com/nbzhu/ad-api-gateway-proto;protob\x06proto3"
+	"\x11VideoCoverSuggest\x12\x1b.ocean.VideoCoverSuggestReq\x1a\x1c.ocean.VideoCoverSuggestResp\x12<\n" +
+	"\vFileImageAd\x12\x15.ocean.FileImageAdReq\x1a\x16.ocean.FileImageAdRespB-Z+github.com/nbzhu/ad-api-gateway-proto;protob\x06proto3"
 
 var file_ocean_proto_goTypes = []any{
 	(*QueueLenReq)(nil),           // 0: ocean.QueueLenReq
 	(*AwemesReq)(nil),             // 1: ocean.AwemesReq
 	(*VideoCoverSuggestReq)(nil),  // 2: ocean.VideoCoverSuggestReq
-	(*QueueLenResp)(nil),          // 3: ocean.QueueLenResp
-	(*AwemesResp)(nil),            // 4: ocean.AwemesResp
-	(*VideoCoverSuggestResp)(nil), // 5: ocean.VideoCoverSuggestResp
+	(*FileImageAdReq)(nil),        // 3: ocean.FileImageAdReq
+	(*QueueLenResp)(nil),          // 4: ocean.QueueLenResp
+	(*AwemesResp)(nil),            // 5: ocean.AwemesResp
+	(*VideoCoverSuggestResp)(nil), // 6: ocean.VideoCoverSuggestResp
+	(*FileImageAdResp)(nil),       // 7: ocean.FileImageAdResp
 }
 var file_ocean_proto_depIdxs = []int32{
 	0, // 0: ocean.Api.QueueLen:input_type -> ocean.QueueLenReq
 	1, // 1: ocean.Api.Awemes:input_type -> ocean.AwemesReq
 	2, // 2: ocean.Api.VideoCoverSuggest:input_type -> ocean.VideoCoverSuggestReq
-	3, // 3: ocean.Api.QueueLen:output_type -> ocean.QueueLenResp
-	4, // 4: ocean.Api.Awemes:output_type -> ocean.AwemesResp
-	5, // 5: ocean.Api.VideoCoverSuggest:output_type -> ocean.VideoCoverSuggestResp
-	3, // [3:6] is the sub-list for method output_type
-	0, // [0:3] is the sub-list for method input_type
+	3, // 3: ocean.Api.FileImageAd:input_type -> ocean.FileImageAdReq
+	4, // 4: ocean.Api.QueueLen:output_type -> ocean.QueueLenResp
+	5, // 5: ocean.Api.Awemes:output_type -> ocean.AwemesResp
+	6, // 6: ocean.Api.VideoCoverSuggest:output_type -> ocean.VideoCoverSuggestResp
+	7, // 7: ocean.Api.FileImageAd:output_type -> ocean.FileImageAdResp
+	4, // [4:8] is the sub-list for method output_type
+	0, // [0:4] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name

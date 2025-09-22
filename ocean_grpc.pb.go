@@ -22,6 +22,7 @@ const (
 	Api_QueueLen_FullMethodName          = "/ocean.Api/QueueLen"
 	Api_Awemes_FullMethodName            = "/ocean.Api/Awemes"
 	Api_VideoCoverSuggest_FullMethodName = "/ocean.Api/VideoCoverSuggest"
+	Api_FileImageAd_FullMethodName       = "/ocean.Api/FileImageAd"
 )
 
 // ApiClient is the client API for Api service.
@@ -31,6 +32,7 @@ type ApiClient interface {
 	QueueLen(ctx context.Context, in *QueueLenReq, opts ...grpc.CallOption) (*QueueLenResp, error)
 	Awemes(ctx context.Context, in *AwemesReq, opts ...grpc.CallOption) (*AwemesResp, error)
 	VideoCoverSuggest(ctx context.Context, in *VideoCoverSuggestReq, opts ...grpc.CallOption) (*VideoCoverSuggestResp, error)
+	FileImageAd(ctx context.Context, in *FileImageAdReq, opts ...grpc.CallOption) (*FileImageAdResp, error)
 }
 
 type apiClient struct {
@@ -71,6 +73,16 @@ func (c *apiClient) VideoCoverSuggest(ctx context.Context, in *VideoCoverSuggest
 	return out, nil
 }
 
+func (c *apiClient) FileImageAd(ctx context.Context, in *FileImageAdReq, opts ...grpc.CallOption) (*FileImageAdResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FileImageAdResp)
+	err := c.cc.Invoke(ctx, Api_FileImageAd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ApiServer is the server API for Api service.
 // All implementations must embed UnimplementedApiServer
 // for forward compatibility.
@@ -78,6 +90,7 @@ type ApiServer interface {
 	QueueLen(context.Context, *QueueLenReq) (*QueueLenResp, error)
 	Awemes(context.Context, *AwemesReq) (*AwemesResp, error)
 	VideoCoverSuggest(context.Context, *VideoCoverSuggestReq) (*VideoCoverSuggestResp, error)
+	FileImageAd(context.Context, *FileImageAdReq) (*FileImageAdResp, error)
 	mustEmbedUnimplementedApiServer()
 }
 
@@ -96,6 +109,9 @@ func (UnimplementedApiServer) Awemes(context.Context, *AwemesReq) (*AwemesResp, 
 }
 func (UnimplementedApiServer) VideoCoverSuggest(context.Context, *VideoCoverSuggestReq) (*VideoCoverSuggestResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VideoCoverSuggest not implemented")
+}
+func (UnimplementedApiServer) FileImageAd(context.Context, *FileImageAdReq) (*FileImageAdResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FileImageAd not implemented")
 }
 func (UnimplementedApiServer) mustEmbedUnimplementedApiServer() {}
 func (UnimplementedApiServer) testEmbeddedByValue()             {}
@@ -172,6 +188,24 @@ func _Api_VideoCoverSuggest_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Api_FileImageAd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FileImageAdReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiServer).FileImageAd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Api_FileImageAd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiServer).FileImageAd(ctx, req.(*FileImageAdReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Api_ServiceDesc is the grpc.ServiceDesc for Api service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -190,6 +224,10 @@ var Api_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "VideoCoverSuggest",
 			Handler:    _Api_VideoCoverSuggest_Handler,
+		},
+		{
+			MethodName: "FileImageAd",
+			Handler:    _Api_FileImageAd_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
