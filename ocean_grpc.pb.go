@@ -19,10 +19,12 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Api_QueueLen_FullMethodName          = "/ocean.Api/QueueLen"
-	Api_Awemes_FullMethodName            = "/ocean.Api/Awemes"
-	Api_VideoCoverSuggest_FullMethodName = "/ocean.Api/VideoCoverSuggest"
-	Api_FileImageAd_FullMethodName       = "/ocean.Api/FileImageAd"
+	Api_QueueLen_FullMethodName             = "/ocean.Api/QueueLen"
+	Api_Awemes_FullMethodName               = "/ocean.Api/Awemes"
+	Api_VideoCoverSuggest_FullMethodName    = "/ocean.Api/VideoCoverSuggest"
+	Api_FileImageAd_FullMethodName          = "/ocean.Api/FileImageAd"
+	Api_FileUploadTaskCreate_FullMethodName = "/ocean.Api/FileUploadTaskCreate"
+	Api_FileUploadTaskList_FullMethodName   = "/ocean.Api/FileUploadTaskList"
 )
 
 // ApiClient is the client API for Api service.
@@ -33,6 +35,8 @@ type ApiClient interface {
 	Awemes(ctx context.Context, in *AwemesReq, opts ...grpc.CallOption) (*AwemesResp, error)
 	VideoCoverSuggest(ctx context.Context, in *VideoCoverSuggestReq, opts ...grpc.CallOption) (*VideoCoverSuggestResp, error)
 	FileImageAd(ctx context.Context, in *FileImageAdReq, opts ...grpc.CallOption) (*FileImageAdResp, error)
+	FileUploadTaskCreate(ctx context.Context, in *FileUploadTaskCreateReq, opts ...grpc.CallOption) (*FileUploadTaskCreateResp, error)
+	FileUploadTaskList(ctx context.Context, in *FileUploadTaskListReq, opts ...grpc.CallOption) (*FileUploadTaskListResp, error)
 }
 
 type apiClient struct {
@@ -83,6 +87,26 @@ func (c *apiClient) FileImageAd(ctx context.Context, in *FileImageAdReq, opts ..
 	return out, nil
 }
 
+func (c *apiClient) FileUploadTaskCreate(ctx context.Context, in *FileUploadTaskCreateReq, opts ...grpc.CallOption) (*FileUploadTaskCreateResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FileUploadTaskCreateResp)
+	err := c.cc.Invoke(ctx, Api_FileUploadTaskCreate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *apiClient) FileUploadTaskList(ctx context.Context, in *FileUploadTaskListReq, opts ...grpc.CallOption) (*FileUploadTaskListResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FileUploadTaskListResp)
+	err := c.cc.Invoke(ctx, Api_FileUploadTaskList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ApiServer is the server API for Api service.
 // All implementations must embed UnimplementedApiServer
 // for forward compatibility.
@@ -91,6 +115,8 @@ type ApiServer interface {
 	Awemes(context.Context, *AwemesReq) (*AwemesResp, error)
 	VideoCoverSuggest(context.Context, *VideoCoverSuggestReq) (*VideoCoverSuggestResp, error)
 	FileImageAd(context.Context, *FileImageAdReq) (*FileImageAdResp, error)
+	FileUploadTaskCreate(context.Context, *FileUploadTaskCreateReq) (*FileUploadTaskCreateResp, error)
+	FileUploadTaskList(context.Context, *FileUploadTaskListReq) (*FileUploadTaskListResp, error)
 	mustEmbedUnimplementedApiServer()
 }
 
@@ -112,6 +138,12 @@ func (UnimplementedApiServer) VideoCoverSuggest(context.Context, *VideoCoverSugg
 }
 func (UnimplementedApiServer) FileImageAd(context.Context, *FileImageAdReq) (*FileImageAdResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FileImageAd not implemented")
+}
+func (UnimplementedApiServer) FileUploadTaskCreate(context.Context, *FileUploadTaskCreateReq) (*FileUploadTaskCreateResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FileUploadTaskCreate not implemented")
+}
+func (UnimplementedApiServer) FileUploadTaskList(context.Context, *FileUploadTaskListReq) (*FileUploadTaskListResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FileUploadTaskList not implemented")
 }
 func (UnimplementedApiServer) mustEmbedUnimplementedApiServer() {}
 func (UnimplementedApiServer) testEmbeddedByValue()             {}
@@ -206,6 +238,42 @@ func _Api_FileImageAd_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Api_FileUploadTaskCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FileUploadTaskCreateReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiServer).FileUploadTaskCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Api_FileUploadTaskCreate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiServer).FileUploadTaskCreate(ctx, req.(*FileUploadTaskCreateReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Api_FileUploadTaskList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FileUploadTaskListReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiServer).FileUploadTaskList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Api_FileUploadTaskList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiServer).FileUploadTaskList(ctx, req.(*FileUploadTaskListReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Api_ServiceDesc is the grpc.ServiceDesc for Api service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -228,6 +296,14 @@ var Api_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FileImageAd",
 			Handler:    _Api_FileImageAd_Handler,
+		},
+		{
+			MethodName: "FileUploadTaskCreate",
+			Handler:    _Api_FileUploadTaskCreate_Handler,
+		},
+		{
+			MethodName: "FileUploadTaskList",
+			Handler:    _Api_FileUploadTaskList_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -601,6 +601,614 @@ func (x *FileImageAdData) GetMaterialId() uint64 {
 	return 0
 }
 
+type FileUploadTaskCreateReq struct {
+	state         protoimpl.MessageState         `protogen:"open.v1"`
+	Conf          *Conf                          `protobuf:"bytes,1,opt,name=conf,proto3" json:"conf,omitempty"`
+	Params        *FileUploadTaskCreateReqParams `protobuf:"bytes,2,opt,name=params,proto3" json:"params,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FileUploadTaskCreateReq) Reset() {
+	*x = FileUploadTaskCreateReq{}
+	mi := &file_material_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FileUploadTaskCreateReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FileUploadTaskCreateReq) ProtoMessage() {}
+
+func (x *FileUploadTaskCreateReq) ProtoReflect() protoreflect.Message {
+	mi := &file_material_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FileUploadTaskCreateReq.ProtoReflect.Descriptor instead.
+func (*FileUploadTaskCreateReq) Descriptor() ([]byte, []int) {
+	return file_material_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *FileUploadTaskCreateReq) GetConf() *Conf {
+	if x != nil {
+		return x.Conf
+	}
+	return nil
+}
+
+func (x *FileUploadTaskCreateReq) GetParams() *FileUploadTaskCreateReqParams {
+	if x != nil {
+		return x.Params
+	}
+	return nil
+}
+
+type FileUploadTaskCreateReqParams struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	AccountId     uint64                 `protobuf:"varint,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	AccountType   string                 `protobuf:"bytes,2,opt,name=account_type,json=accountType,proto3" json:"account_type,omitempty"`
+	Filename      string                 `protobuf:"bytes,3,opt,name=filename,proto3" json:"filename,omitempty"`
+	Labels        []string               `protobuf:"bytes,4,rep,name=labels,proto3" json:"labels,omitempty"`
+	VideoUrl      string                 `protobuf:"bytes,5,opt,name=video_url,json=videoUrl,proto3" json:"video_url,omitempty"`
+	IsAigc        bool                   `protobuf:"varint,6,opt,name=is_aigc,json=isAigc,proto3" json:"is_aigc,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FileUploadTaskCreateReqParams) Reset() {
+	*x = FileUploadTaskCreateReqParams{}
+	mi := &file_material_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FileUploadTaskCreateReqParams) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FileUploadTaskCreateReqParams) ProtoMessage() {}
+
+func (x *FileUploadTaskCreateReqParams) ProtoReflect() protoreflect.Message {
+	mi := &file_material_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FileUploadTaskCreateReqParams.ProtoReflect.Descriptor instead.
+func (*FileUploadTaskCreateReqParams) Descriptor() ([]byte, []int) {
+	return file_material_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *FileUploadTaskCreateReqParams) GetAccountId() uint64 {
+	if x != nil {
+		return x.AccountId
+	}
+	return 0
+}
+
+func (x *FileUploadTaskCreateReqParams) GetAccountType() string {
+	if x != nil {
+		return x.AccountType
+	}
+	return ""
+}
+
+func (x *FileUploadTaskCreateReqParams) GetFilename() string {
+	if x != nil {
+		return x.Filename
+	}
+	return ""
+}
+
+func (x *FileUploadTaskCreateReqParams) GetLabels() []string {
+	if x != nil {
+		return x.Labels
+	}
+	return nil
+}
+
+func (x *FileUploadTaskCreateReqParams) GetVideoUrl() string {
+	if x != nil {
+		return x.VideoUrl
+	}
+	return ""
+}
+
+func (x *FileUploadTaskCreateReqParams) GetIsAigc() bool {
+	if x != nil {
+		return x.IsAigc
+	}
+	return false
+}
+
+type FileUploadTaskCreateResp struct {
+	state         protoimpl.MessageState    `protogen:"open.v1"`
+	Code          int32                     `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
+	Message       string                    `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	RequestId     string                    `protobuf:"bytes,3,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+	Data          *FileUploadTaskCreateData `protobuf:"bytes,4,opt,name=data,proto3" json:"data,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FileUploadTaskCreateResp) Reset() {
+	*x = FileUploadTaskCreateResp{}
+	mi := &file_material_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FileUploadTaskCreateResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FileUploadTaskCreateResp) ProtoMessage() {}
+
+func (x *FileUploadTaskCreateResp) ProtoReflect() protoreflect.Message {
+	mi := &file_material_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FileUploadTaskCreateResp.ProtoReflect.Descriptor instead.
+func (*FileUploadTaskCreateResp) Descriptor() ([]byte, []int) {
+	return file_material_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *FileUploadTaskCreateResp) GetCode() int32 {
+	if x != nil {
+		return x.Code
+	}
+	return 0
+}
+
+func (x *FileUploadTaskCreateResp) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *FileUploadTaskCreateResp) GetRequestId() string {
+	if x != nil {
+		return x.RequestId
+	}
+	return ""
+}
+
+func (x *FileUploadTaskCreateResp) GetData() *FileUploadTaskCreateData {
+	if x != nil {
+		return x.Data
+	}
+	return nil
+}
+
+type FileUploadTaskCreateData struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	TaskId        uint64                 `protobuf:"varint,1,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FileUploadTaskCreateData) Reset() {
+	*x = FileUploadTaskCreateData{}
+	mi := &file_material_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FileUploadTaskCreateData) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FileUploadTaskCreateData) ProtoMessage() {}
+
+func (x *FileUploadTaskCreateData) ProtoReflect() protoreflect.Message {
+	mi := &file_material_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FileUploadTaskCreateData.ProtoReflect.Descriptor instead.
+func (*FileUploadTaskCreateData) Descriptor() ([]byte, []int) {
+	return file_material_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *FileUploadTaskCreateData) GetTaskId() uint64 {
+	if x != nil {
+		return x.TaskId
+	}
+	return 0
+}
+
+type FileUploadTaskListReq struct {
+	state         protoimpl.MessageState       `protogen:"open.v1"`
+	Conf          *Conf                        `protobuf:"bytes,1,opt,name=conf,proto3" json:"conf,omitempty"`
+	Params        *FileUploadTaskListReqParams `protobuf:"bytes,2,opt,name=params,proto3" json:"params,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FileUploadTaskListReq) Reset() {
+	*x = FileUploadTaskListReq{}
+	mi := &file_material_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FileUploadTaskListReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FileUploadTaskListReq) ProtoMessage() {}
+
+func (x *FileUploadTaskListReq) ProtoReflect() protoreflect.Message {
+	mi := &file_material_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FileUploadTaskListReq.ProtoReflect.Descriptor instead.
+func (*FileUploadTaskListReq) Descriptor() ([]byte, []int) {
+	return file_material_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *FileUploadTaskListReq) GetConf() *Conf {
+	if x != nil {
+		return x.Conf
+	}
+	return nil
+}
+
+func (x *FileUploadTaskListReq) GetParams() *FileUploadTaskListReqParams {
+	if x != nil {
+		return x.Params
+	}
+	return nil
+}
+
+type FileUploadTaskListReqParams struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	AccountId     uint64                 `protobuf:"varint,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	AccountType   string                 `protobuf:"bytes,2,opt,name=account_type,json=accountType,proto3" json:"account_type,omitempty"`
+	TaskIds       []uint64               `protobuf:"varint,3,rep,packed,name=task_ids,json=taskIds,proto3" json:"task_ids,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FileUploadTaskListReqParams) Reset() {
+	*x = FileUploadTaskListReqParams{}
+	mi := &file_material_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FileUploadTaskListReqParams) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FileUploadTaskListReqParams) ProtoMessage() {}
+
+func (x *FileUploadTaskListReqParams) ProtoReflect() protoreflect.Message {
+	mi := &file_material_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FileUploadTaskListReqParams.ProtoReflect.Descriptor instead.
+func (*FileUploadTaskListReqParams) Descriptor() ([]byte, []int) {
+	return file_material_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *FileUploadTaskListReqParams) GetAccountId() uint64 {
+	if x != nil {
+		return x.AccountId
+	}
+	return 0
+}
+
+func (x *FileUploadTaskListReqParams) GetAccountType() string {
+	if x != nil {
+		return x.AccountType
+	}
+	return ""
+}
+
+func (x *FileUploadTaskListReqParams) GetTaskIds() []uint64 {
+	if x != nil {
+		return x.TaskIds
+	}
+	return nil
+}
+
+type FileUploadTaskListResp struct {
+	state         protoimpl.MessageState  `protogen:"open.v1"`
+	Code          int32                   `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
+	Message       string                  `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	RequestId     string                  `protobuf:"bytes,3,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+	Data          *FileUploadTaskListData `protobuf:"bytes,4,opt,name=data,proto3" json:"data,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FileUploadTaskListResp) Reset() {
+	*x = FileUploadTaskListResp{}
+	mi := &file_material_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FileUploadTaskListResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FileUploadTaskListResp) ProtoMessage() {}
+
+func (x *FileUploadTaskListResp) ProtoReflect() protoreflect.Message {
+	mi := &file_material_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FileUploadTaskListResp.ProtoReflect.Descriptor instead.
+func (*FileUploadTaskListResp) Descriptor() ([]byte, []int) {
+	return file_material_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *FileUploadTaskListResp) GetCode() int32 {
+	if x != nil {
+		return x.Code
+	}
+	return 0
+}
+
+func (x *FileUploadTaskListResp) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *FileUploadTaskListResp) GetRequestId() string {
+	if x != nil {
+		return x.RequestId
+	}
+	return ""
+}
+
+func (x *FileUploadTaskListResp) GetData() *FileUploadTaskListData {
+	if x != nil {
+		return x.Data
+	}
+	return nil
+}
+
+type FileUploadTaskListData struct {
+	state         protoimpl.MessageState    `protogen:"open.v1"`
+	List          []*FileUploadTaskListItem `protobuf:"bytes,1,rep,name=list,proto3" json:"list,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FileUploadTaskListData) Reset() {
+	*x = FileUploadTaskListData{}
+	mi := &file_material_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FileUploadTaskListData) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FileUploadTaskListData) ProtoMessage() {}
+
+func (x *FileUploadTaskListData) ProtoReflect() protoreflect.Message {
+	mi := &file_material_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FileUploadTaskListData.ProtoReflect.Descriptor instead.
+func (*FileUploadTaskListData) Descriptor() ([]byte, []int) {
+	return file_material_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *FileUploadTaskListData) GetList() []*FileUploadTaskListItem {
+	if x != nil {
+		return x.List
+	}
+	return nil
+}
+
+type FileUploadTaskListItem struct {
+	state         protoimpl.MessageState           `protogen:"open.v1"`
+	Status        string                           `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	ErrorMsg      string                           `protobuf:"bytes,2,opt,name=error_msg,json=errorMsg,proto3" json:"error_msg,omitempty"`
+	TaskId        int64                            `protobuf:"varint,3,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
+	VideoInfo     *FileUploadTaskListItemVideoInfo `protobuf:"bytes,4,opt,name=video_info,json=videoInfo,proto3" json:"video_info,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FileUploadTaskListItem) Reset() {
+	*x = FileUploadTaskListItem{}
+	mi := &file_material_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FileUploadTaskListItem) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FileUploadTaskListItem) ProtoMessage() {}
+
+func (x *FileUploadTaskListItem) ProtoReflect() protoreflect.Message {
+	mi := &file_material_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FileUploadTaskListItem.ProtoReflect.Descriptor instead.
+func (*FileUploadTaskListItem) Descriptor() ([]byte, []int) {
+	return file_material_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *FileUploadTaskListItem) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
+func (x *FileUploadTaskListItem) GetErrorMsg() string {
+	if x != nil {
+		return x.ErrorMsg
+	}
+	return ""
+}
+
+func (x *FileUploadTaskListItem) GetTaskId() int64 {
+	if x != nil {
+		return x.TaskId
+	}
+	return 0
+}
+
+func (x *FileUploadTaskListItem) GetVideoInfo() *FileUploadTaskListItemVideoInfo {
+	if x != nil {
+		return x.VideoInfo
+	}
+	return nil
+}
+
+type FileUploadTaskListItemVideoInfo struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	MaterialId    int64                  `protobuf:"varint,1,opt,name=material_id,json=materialId,proto3" json:"material_id,omitempty"`
+	Size          int64                  `protobuf:"varint,2,opt,name=size,proto3" json:"size,omitempty"`
+	VideoId       string                 `protobuf:"bytes,3,opt,name=video_id,json=videoId,proto3" json:"video_id,omitempty"`
+	VideoUrl      string                 `protobuf:"bytes,4,opt,name=video_url,json=videoUrl,proto3" json:"video_url,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FileUploadTaskListItemVideoInfo) Reset() {
+	*x = FileUploadTaskListItemVideoInfo{}
+	mi := &file_material_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FileUploadTaskListItemVideoInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FileUploadTaskListItemVideoInfo) ProtoMessage() {}
+
+func (x *FileUploadTaskListItemVideoInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_material_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FileUploadTaskListItemVideoInfo.ProtoReflect.Descriptor instead.
+func (*FileUploadTaskListItemVideoInfo) Descriptor() ([]byte, []int) {
+	return file_material_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *FileUploadTaskListItemVideoInfo) GetMaterialId() int64 {
+	if x != nil {
+		return x.MaterialId
+	}
+	return 0
+}
+
+func (x *FileUploadTaskListItemVideoInfo) GetSize() int64 {
+	if x != nil {
+		return x.Size
+	}
+	return 0
+}
+
+func (x *FileUploadTaskListItemVideoInfo) GetVideoId() string {
+	if x != nil {
+		return x.VideoId
+	}
+	return ""
+}
+
+func (x *FileUploadTaskListItemVideoInfo) GetVideoUrl() string {
+	if x != nil {
+		return x.VideoUrl
+	}
+	return ""
+}
+
 var File_material_proto protoreflect.FileDescriptor
 
 const file_material_proto_rawDesc = "" +
@@ -652,7 +1260,56 @@ const file_material_proto_rawDesc = "" +
 	"\x06format\x18\x06 \x01(\tR\x06format\x12\x1c\n" +
 	"\tsignature\x18\a \x01(\tR\tsignature\x12\x1f\n" +
 	"\vmaterial_id\x18\b \x01(\x04R\n" +
-	"materialIdB-Z+github.com/nbzhu/ad-api-gateway-proto;protob\x06proto3"
+	"materialId\"w\n" +
+	"\x17FileUploadTaskCreateReq\x12\x1e\n" +
+	"\x04conf\x18\x01 \x01(\v2\n" +
+	".conf.ConfR\x04conf\x12<\n" +
+	"\x06params\x18\x02 \x01(\v2$.ocean.FileUploadTaskCreateReqParamsR\x06params\"\xcb\x01\n" +
+	"\x1dFileUploadTaskCreateReqParams\x12\x1d\n" +
+	"\n" +
+	"account_id\x18\x01 \x01(\x04R\taccountId\x12!\n" +
+	"\faccount_type\x18\x02 \x01(\tR\vaccountType\x12\x1a\n" +
+	"\bfilename\x18\x03 \x01(\tR\bfilename\x12\x16\n" +
+	"\x06labels\x18\x04 \x03(\tR\x06labels\x12\x1b\n" +
+	"\tvideo_url\x18\x05 \x01(\tR\bvideoUrl\x12\x17\n" +
+	"\ais_aigc\x18\x06 \x01(\bR\x06isAigc\"\x9c\x01\n" +
+	"\x18FileUploadTaskCreateResp\x12\x12\n" +
+	"\x04code\x18\x01 \x01(\x05R\x04code\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\x12\x1d\n" +
+	"\n" +
+	"request_id\x18\x03 \x01(\tR\trequestId\x123\n" +
+	"\x04data\x18\x04 \x01(\v2\x1f.ocean.FileUploadTaskCreateDataR\x04data\"3\n" +
+	"\x18FileUploadTaskCreateData\x12\x17\n" +
+	"\atask_id\x18\x01 \x01(\x04R\x06taskId\"s\n" +
+	"\x15FileUploadTaskListReq\x12\x1e\n" +
+	"\x04conf\x18\x01 \x01(\v2\n" +
+	".conf.ConfR\x04conf\x12:\n" +
+	"\x06params\x18\x02 \x01(\v2\".ocean.FileUploadTaskListReqParamsR\x06params\"z\n" +
+	"\x1bFileUploadTaskListReqParams\x12\x1d\n" +
+	"\n" +
+	"account_id\x18\x01 \x01(\x04R\taccountId\x12!\n" +
+	"\faccount_type\x18\x02 \x01(\tR\vaccountType\x12\x19\n" +
+	"\btask_ids\x18\x03 \x03(\x04R\ataskIds\"\x98\x01\n" +
+	"\x16FileUploadTaskListResp\x12\x12\n" +
+	"\x04code\x18\x01 \x01(\x05R\x04code\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\x12\x1d\n" +
+	"\n" +
+	"request_id\x18\x03 \x01(\tR\trequestId\x121\n" +
+	"\x04data\x18\x04 \x01(\v2\x1d.ocean.FileUploadTaskListDataR\x04data\"K\n" +
+	"\x16FileUploadTaskListData\x121\n" +
+	"\x04list\x18\x01 \x03(\v2\x1d.ocean.FileUploadTaskListItemR\x04list\"\xad\x01\n" +
+	"\x16FileUploadTaskListItem\x12\x16\n" +
+	"\x06status\x18\x01 \x01(\tR\x06status\x12\x1b\n" +
+	"\terror_msg\x18\x02 \x01(\tR\berrorMsg\x12\x17\n" +
+	"\atask_id\x18\x03 \x01(\x03R\x06taskId\x12E\n" +
+	"\n" +
+	"video_info\x18\x04 \x01(\v2&.ocean.FileUploadTaskListItemVideoInfoR\tvideoInfo\"\x8e\x01\n" +
+	"\x1fFileUploadTaskListItemVideoInfo\x12\x1f\n" +
+	"\vmaterial_id\x18\x01 \x01(\x03R\n" +
+	"materialId\x12\x12\n" +
+	"\x04size\x18\x02 \x01(\x03R\x04size\x12\x19\n" +
+	"\bvideo_id\x18\x03 \x01(\tR\avideoId\x12\x1b\n" +
+	"\tvideo_url\x18\x04 \x01(\tR\bvideoUrlB-Z+github.com/nbzhu/ad-api-gateway-proto;protob\x06proto3"
 
 var (
 	file_material_proto_rawDescOnce sync.Once
@@ -666,32 +1323,50 @@ func file_material_proto_rawDescGZIP() []byte {
 	return file_material_proto_rawDescData
 }
 
-var file_material_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_material_proto_msgTypes = make([]protoimpl.MessageInfo, 19)
 var file_material_proto_goTypes = []any{
-	(*VideoCoverSuggestList)(nil),      // 0: ocean.VideoCoverSuggestList
-	(*VideoCoverSuggestData)(nil),      // 1: ocean.VideoCoverSuggestData
-	(*VideoCoverSuggestReq)(nil),       // 2: ocean.VideoCoverSuggestReq
-	(*VideoCoverSuggestReqParams)(nil), // 3: ocean.VideoCoverSuggestReqParams
-	(*VideoCoverSuggestResp)(nil),      // 4: ocean.VideoCoverSuggestResp
-	(*FileImageAdReq)(nil),             // 5: ocean.FileImageAdReq
-	(*FileImageAdReqParams)(nil),       // 6: ocean.FileImageAdReqParams
-	(*FileImageAdResp)(nil),            // 7: ocean.FileImageAdResp
-	(*FileImageAdData)(nil),            // 8: ocean.FileImageAdData
-	(*Conf)(nil),                       // 9: conf.Conf
+	(*VideoCoverSuggestList)(nil),           // 0: ocean.VideoCoverSuggestList
+	(*VideoCoverSuggestData)(nil),           // 1: ocean.VideoCoverSuggestData
+	(*VideoCoverSuggestReq)(nil),            // 2: ocean.VideoCoverSuggestReq
+	(*VideoCoverSuggestReqParams)(nil),      // 3: ocean.VideoCoverSuggestReqParams
+	(*VideoCoverSuggestResp)(nil),           // 4: ocean.VideoCoverSuggestResp
+	(*FileImageAdReq)(nil),                  // 5: ocean.FileImageAdReq
+	(*FileImageAdReqParams)(nil),            // 6: ocean.FileImageAdReqParams
+	(*FileImageAdResp)(nil),                 // 7: ocean.FileImageAdResp
+	(*FileImageAdData)(nil),                 // 8: ocean.FileImageAdData
+	(*FileUploadTaskCreateReq)(nil),         // 9: ocean.FileUploadTaskCreateReq
+	(*FileUploadTaskCreateReqParams)(nil),   // 10: ocean.FileUploadTaskCreateReqParams
+	(*FileUploadTaskCreateResp)(nil),        // 11: ocean.FileUploadTaskCreateResp
+	(*FileUploadTaskCreateData)(nil),        // 12: ocean.FileUploadTaskCreateData
+	(*FileUploadTaskListReq)(nil),           // 13: ocean.FileUploadTaskListReq
+	(*FileUploadTaskListReqParams)(nil),     // 14: ocean.FileUploadTaskListReqParams
+	(*FileUploadTaskListResp)(nil),          // 15: ocean.FileUploadTaskListResp
+	(*FileUploadTaskListData)(nil),          // 16: ocean.FileUploadTaskListData
+	(*FileUploadTaskListItem)(nil),          // 17: ocean.FileUploadTaskListItem
+	(*FileUploadTaskListItemVideoInfo)(nil), // 18: ocean.FileUploadTaskListItemVideoInfo
+	(*Conf)(nil),                            // 19: conf.Conf
 }
 var file_material_proto_depIdxs = []int32{
-	0, // 0: ocean.VideoCoverSuggestData.list:type_name -> ocean.VideoCoverSuggestList
-	9, // 1: ocean.VideoCoverSuggestReq.conf:type_name -> conf.Conf
-	3, // 2: ocean.VideoCoverSuggestReq.params:type_name -> ocean.VideoCoverSuggestReqParams
-	1, // 3: ocean.VideoCoverSuggestResp.data:type_name -> ocean.VideoCoverSuggestData
-	9, // 4: ocean.FileImageAdReq.conf:type_name -> conf.Conf
-	6, // 5: ocean.FileImageAdReq.params:type_name -> ocean.FileImageAdReqParams
-	8, // 6: ocean.FileImageAdResp.data:type_name -> ocean.FileImageAdData
-	7, // [7:7] is the sub-list for method output_type
-	7, // [7:7] is the sub-list for method input_type
-	7, // [7:7] is the sub-list for extension type_name
-	7, // [7:7] is the sub-list for extension extendee
-	0, // [0:7] is the sub-list for field type_name
+	0,  // 0: ocean.VideoCoverSuggestData.list:type_name -> ocean.VideoCoverSuggestList
+	19, // 1: ocean.VideoCoverSuggestReq.conf:type_name -> conf.Conf
+	3,  // 2: ocean.VideoCoverSuggestReq.params:type_name -> ocean.VideoCoverSuggestReqParams
+	1,  // 3: ocean.VideoCoverSuggestResp.data:type_name -> ocean.VideoCoverSuggestData
+	19, // 4: ocean.FileImageAdReq.conf:type_name -> conf.Conf
+	6,  // 5: ocean.FileImageAdReq.params:type_name -> ocean.FileImageAdReqParams
+	8,  // 6: ocean.FileImageAdResp.data:type_name -> ocean.FileImageAdData
+	19, // 7: ocean.FileUploadTaskCreateReq.conf:type_name -> conf.Conf
+	10, // 8: ocean.FileUploadTaskCreateReq.params:type_name -> ocean.FileUploadTaskCreateReqParams
+	12, // 9: ocean.FileUploadTaskCreateResp.data:type_name -> ocean.FileUploadTaskCreateData
+	19, // 10: ocean.FileUploadTaskListReq.conf:type_name -> conf.Conf
+	14, // 11: ocean.FileUploadTaskListReq.params:type_name -> ocean.FileUploadTaskListReqParams
+	16, // 12: ocean.FileUploadTaskListResp.data:type_name -> ocean.FileUploadTaskListData
+	17, // 13: ocean.FileUploadTaskListData.list:type_name -> ocean.FileUploadTaskListItem
+	18, // 14: ocean.FileUploadTaskListItem.video_info:type_name -> ocean.FileUploadTaskListItemVideoInfo
+	15, // [15:15] is the sub-list for method output_type
+	15, // [15:15] is the sub-list for method input_type
+	15, // [15:15] is the sub-list for extension type_name
+	15, // [15:15] is the sub-list for extension extendee
+	0,  // [0:15] is the sub-list for field type_name
 }
 
 func init() { file_material_proto_init() }
@@ -706,7 +1381,7 @@ func file_material_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_material_proto_rawDesc), len(file_material_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   9,
+			NumMessages:   19,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

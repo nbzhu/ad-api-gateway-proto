@@ -11,4 +11,6 @@ service Api {
   rpc Awemes (AwemesReq) returns (AwemesResp);
   rpc VideoCoverSuggest (VideoCoverSuggestReq) returns (VideoCoverSuggestResp);
   rpc FileImageAd (FileImageAdReq) returns (FileImageAdResp);
+  rpc FileUploadTaskCreate (FileUploadTaskCreateReq) returns (FileUploadTaskCreateResp);
+  rpc FileUploadTaskList (FileUploadTaskListReq) returns (FileUploadTaskListResp);
 }
