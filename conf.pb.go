@@ -206,6 +206,74 @@ func (x *Conf) GetLowPriorityLen() uint32 {
 	return 0
 }
 
+type PageInfo struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Page          int32                  `protobuf:"varint,1,opt,name=page,proto3" json:"page,omitempty"`
+	PageSize      int32                  `protobuf:"varint,2,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
+	TotalNumber   int32                  `protobuf:"varint,3,opt,name=total_number,json=totalNumber,proto3" json:"total_number,omitempty"`
+	TotalPage     int32                  `protobuf:"varint,4,opt,name=total_page,json=totalPage,proto3" json:"total_page,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PageInfo) Reset() {
+	*x = PageInfo{}
+	mi := &file_conf_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PageInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PageInfo) ProtoMessage() {}
+
+func (x *PageInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_conf_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PageInfo.ProtoReflect.Descriptor instead.
+func (*PageInfo) Descriptor() ([]byte, []int) {
+	return file_conf_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *PageInfo) GetPage() int32 {
+	if x != nil {
+		return x.Page
+	}
+	return 0
+}
+
+func (x *PageInfo) GetPageSize() int32 {
+	if x != nil {
+		return x.PageSize
+	}
+	return 0
+}
+
+func (x *PageInfo) GetTotalNumber() int32 {
+	if x != nil {
+		return x.TotalNumber
+	}
+	return 0
+}
+
+func (x *PageInfo) GetTotalPage() int32 {
+	if x != nil {
+		return x.TotalPage
+	}
+	return 0
+}
+
 var File_conf_proto protoreflect.FileDescriptor
 
 const file_conf_proto_rawDesc = "" +
@@ -223,7 +291,13 @@ const file_conf_proto_rawDesc = "" +
 	"\x10low_priority_len\x18\x05 \x01(\rR\x0elowPriorityLen\x1aP\n" +
 	"\x13AccessTokenMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12#\n" +
-	"\x05value\x18\x02 \x01(\v2\r.conf.AppConfR\x05value:\x028\x01*)\n" +
+	"\x05value\x18\x02 \x01(\v2\r.conf.AppConfR\x05value:\x028\x01\"}\n" +
+	"\bPageInfo\x12\x12\n" +
+	"\x04page\x18\x01 \x01(\x05R\x04page\x12\x1b\n" +
+	"\tpage_size\x18\x02 \x01(\x05R\bpageSize\x12!\n" +
+	"\ftotal_number\x18\x03 \x01(\x05R\vtotalNumber\x12\x1d\n" +
+	"\n" +
+	"total_page\x18\x04 \x01(\x05R\ttotalPage*)\n" +
 	"\bPriority\x12\a\n" +
 	"\x03Low\x10\x00\x12\n" +
 	"\n" +
@@ -243,16 +317,17 @@ func file_conf_proto_rawDescGZIP() []byte {
 }
 
 var file_conf_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_conf_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_conf_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_conf_proto_goTypes = []any{
-	(Priority)(0),   // 0: conf.Priority
-	(*AppConf)(nil), // 1: conf.AppConf
-	(*Conf)(nil),    // 2: conf.Conf
-	nil,             // 3: conf.Conf.AccessTokenMapEntry
+	(Priority)(0),    // 0: conf.Priority
+	(*AppConf)(nil),  // 1: conf.AppConf
+	(*Conf)(nil),     // 2: conf.Conf
+	(*PageInfo)(nil), // 3: conf.PageInfo
+	nil,              // 4: conf.Conf.AccessTokenMapEntry
 }
 var file_conf_proto_depIdxs = []int32{
 	0, // 0: conf.Conf.priority:type_name -> conf.Priority
-	3, // 1: conf.Conf.access_token_map:type_name -> conf.Conf.AccessTokenMapEntry
+	4, // 1: conf.Conf.access_token_map:type_name -> conf.Conf.AccessTokenMapEntry
 	1, // 2: conf.Conf.AccessTokenMapEntry.value:type_name -> conf.AppConf
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
@@ -272,7 +347,7 @@ func file_conf_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_conf_proto_rawDesc), len(file_conf_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   3,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

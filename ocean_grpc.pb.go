@@ -25,6 +25,8 @@ const (
 	Api_FileImageAd_FullMethodName          = "/ocean.Api/FileImageAd"
 	Api_FileUploadTaskCreate_FullMethodName = "/ocean.Api/FileUploadTaskCreate"
 	Api_FileUploadTaskList_FullMethodName   = "/ocean.Api/FileUploadTaskList"
+	Api_MicroAppList_FullMethodName         = "/ocean.Api/MicroAppList"
+	Api_MicroAppDetail_FullMethodName       = "/ocean.Api/MicroAppDetail"
 )
 
 // ApiClient is the client API for Api service.
@@ -37,6 +39,8 @@ type ApiClient interface {
 	FileImageAd(ctx context.Context, in *FileImageAdReq, opts ...grpc.CallOption) (*FileImageAdResp, error)
 	FileUploadTaskCreate(ctx context.Context, in *FileUploadTaskCreateReq, opts ...grpc.CallOption) (*FileUploadTaskCreateResp, error)
 	FileUploadTaskList(ctx context.Context, in *FileUploadTaskListReq, opts ...grpc.CallOption) (*FileUploadTaskListResp, error)
+	MicroAppList(ctx context.Context, in *MicroAppListReq, opts ...grpc.CallOption) (*MicroAppListResp, error)
+	MicroAppDetail(ctx context.Context, in *MicroAppDetailReq, opts ...grpc.CallOption) (*MicroAppDetailResp, error)
 }
 
 type apiClient struct {
@@ -107,6 +111,26 @@ func (c *apiClient) FileUploadTaskList(ctx context.Context, in *FileUploadTaskLi
 	return out, nil
 }
 
+func (c *apiClient) MicroAppList(ctx context.Context, in *MicroAppListReq, opts ...grpc.CallOption) (*MicroAppListResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MicroAppListResp)
+	err := c.cc.Invoke(ctx, Api_MicroAppList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *apiClient) MicroAppDetail(ctx context.Context, in *MicroAppDetailReq, opts ...grpc.CallOption) (*MicroAppDetailResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MicroAppDetailResp)
+	err := c.cc.Invoke(ctx, Api_MicroAppDetail_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ApiServer is the server API for Api service.
 // All implementations must embed UnimplementedApiServer
 // for forward compatibility.
@@ -117,6 +141,8 @@ type ApiServer interface {
 	FileImageAd(context.Context, *FileImageAdReq) (*FileImageAdResp, error)
 	FileUploadTaskCreate(context.Context, *FileUploadTaskCreateReq) (*FileUploadTaskCreateResp, error)
 	FileUploadTaskList(context.Context, *FileUploadTaskListReq) (*FileUploadTaskListResp, error)
+	MicroAppList(context.Context, *MicroAppListReq) (*MicroAppListResp, error)
+	MicroAppDetail(context.Context, *MicroAppDetailReq) (*MicroAppDetailResp, error)
 	mustEmbedUnimplementedApiServer()
 }
 
@@ -144,6 +170,12 @@ func (UnimplementedApiServer) FileUploadTaskCreate(context.Context, *FileUploadT
 }
 func (UnimplementedApiServer) FileUploadTaskList(context.Context, *FileUploadTaskListReq) (*FileUploadTaskListResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FileUploadTaskList not implemented")
+}
+func (UnimplementedApiServer) MicroAppList(context.Context, *MicroAppListReq) (*MicroAppListResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method MicroAppList not implemented")
+}
+func (UnimplementedApiServer) MicroAppDetail(context.Context, *MicroAppDetailReq) (*MicroAppDetailResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method MicroAppDetail not implemented")
 }
 func (UnimplementedApiServer) mustEmbedUnimplementedApiServer() {}
 func (UnimplementedApiServer) testEmbeddedByValue()             {}
@@ -274,6 +306,42 @@ func _Api_FileUploadTaskList_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Api_MicroAppList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MicroAppListReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiServer).MicroAppList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Api_MicroAppList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiServer).MicroAppList(ctx, req.(*MicroAppListReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Api_MicroAppDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MicroAppDetailReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiServer).MicroAppDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Api_MicroAppDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiServer).MicroAppDetail(ctx, req.(*MicroAppDetailReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Api_ServiceDesc is the grpc.ServiceDesc for Api service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -304,6 +372,14 @@ var Api_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FileUploadTaskList",
 			Handler:    _Api_FileUploadTaskList_Handler,
+		},
+		{
+			MethodName: "MicroAppList",
+			Handler:    _Api_MicroAppList_Handler,
+		},
+		{
+			MethodName: "MicroAppDetail",
+			Handler:    _Api_MicroAppDetail_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

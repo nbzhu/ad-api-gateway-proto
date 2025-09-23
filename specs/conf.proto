@@ -28,3 +28,10 @@ message Conf {
   // 低优先级队列长度，默认9999,注意当队列满时再次请求会报错
   uint32 low_priority_len = 5;
 }
+
+message PageInfo {
+  int32 page = 1;
+  int32 page_size = 2;
+  int32 total_number = 3;
+  int32 total_page = 4;
+}

@@ -13,4 +13,6 @@ service Api {
   rpc FileImageAd (FileImageAdReq) returns (FileImageAdResp);
   rpc FileUploadTaskCreate (FileUploadTaskCreateReq) returns (FileUploadTaskCreateResp);
   rpc FileUploadTaskList (FileUploadTaskListReq) returns (FileUploadTaskListResp);
+  rpc MicroAppList (MicroAppListReq) returns (MicroAppListResp);
+  rpc MicroAppDetail (MicroAppDetailReq) returns (MicroAppDetailResp);
 }
