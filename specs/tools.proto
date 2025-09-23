@@ -100,6 +100,7 @@ message MicroAppListItem {
   string max_payment_tier_range = 20;
   bool has_discount = 21;
   int64 discount_rate = 22;
+  string app_id = 23;
 }
 
 message AssetLinkListReq {

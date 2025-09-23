@@ -769,6 +769,7 @@ type MicroAppListItem struct {
 	MaxPaymentTierRange     string                 `protobuf:"bytes,20,opt,name=max_payment_tier_range,json=maxPaymentTierRange,proto3" json:"max_payment_tier_range,omitempty"`
 	HasDiscount             bool                   `protobuf:"varint,21,opt,name=has_discount,json=hasDiscount,proto3" json:"has_discount,omitempty"`
 	DiscountRate            int64                  `protobuf:"varint,22,opt,name=discount_rate,json=discountRate,proto3" json:"discount_rate,omitempty"`
+	AppId                   string                 `protobuf:"bytes,23,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -955,6 +956,13 @@ func (x *MicroAppListItem) GetDiscountRate() int64 {
 		return x.DiscountRate
 	}
 	return 0
+}
+
+func (x *MicroAppListItem) GetAppId() string {
+	if x != nil {
+		return x.AppId
+	}
+	return ""
 }
 
 type AssetLinkListReq struct {
@@ -1487,7 +1495,7 @@ const file_tools_proto_rawDesc = "" +
 	"\x04data\x18\x04 \x01(\v2\x17.ocean.MicroAppListDataR\x04data\"l\n" +
 	"\x10MicroAppListData\x12+\n" +
 	"\x04list\x18\x01 \x03(\v2\x17.ocean.MicroAppListItemR\x04list\x12+\n" +
-	"\tpage_info\x18\x02 \x01(\v2\x0e.conf.PageInfoR\bpageInfo\"\xd3\x06\n" +
+	"\tpage_info\x18\x02 \x01(\v2\x0e.conf.PageInfoR\bpageInfo\"\xea\x06\n" +
 	"\x10MicroAppListItem\x12\x1f\n" +
 	"\vinstance_id\x18\x01 \x01(\x03R\n" +
 	"instanceId\x12\x16\n" +
@@ -1514,7 +1522,8 @@ const file_tools_proto_rawDesc = "" +
 	"\x16mid_payment_tier_range\x18\x13 \x01(\tR\x13midPaymentTierRange\x123\n" +
 	"\x16max_payment_tier_range\x18\x14 \x01(\tR\x13maxPaymentTierRange\x12!\n" +
 	"\fhas_discount\x18\x15 \x01(\bR\vhasDiscount\x12#\n" +
-	"\rdiscount_rate\x18\x16 \x01(\x03R\fdiscountRate\"f\n" +
+	"\rdiscount_rate\x18\x16 \x01(\x03R\fdiscountRate\x12\x15\n" +
+	"\x06app_id\x18\x17 \x01(\tR\x05appId\"f\n" +
 	"\x10AssetLinkListReq\x12\x1e\n" +
 	"\x04conf\x18\x01 \x01(\v2\n" +
 	".conf.ConfR\x04conf\x122\n" +
