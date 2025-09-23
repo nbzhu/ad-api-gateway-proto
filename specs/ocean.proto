@@ -14,5 +14,5 @@ service Api {
   rpc FileUploadTaskCreate (FileUploadTaskCreateReq) returns (FileUploadTaskCreateResp);
   rpc FileUploadTaskList (FileUploadTaskListReq) returns (FileUploadTaskListResp);
   rpc MicroAppList (MicroAppListReq) returns (MicroAppListResp);
-  rpc MicroAppDetail (MicroAppDetailReq) returns (MicroAppDetailResp);
+  rpc AssetLinkList (AssetLinkListReq) returns (AssetLinkListResp);
 }

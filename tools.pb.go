@@ -957,28 +957,28 @@ func (x *MicroAppListItem) GetDiscountRate() int64 {
 	return 0
 }
 
-type MicroAppDetailReq struct {
+type AssetLinkListReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Conf          *Conf                  `protobuf:"bytes,1,opt,name=conf,proto3" json:"conf,omitempty"`
-	Params        *MicroAppDetailParams  `protobuf:"bytes,2,opt,name=params,proto3" json:"params,omitempty"`
+	Params        *AssetLinkListParams   `protobuf:"bytes,2,opt,name=params,proto3" json:"params,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MicroAppDetailReq) Reset() {
-	*x = MicroAppDetailReq{}
+func (x *AssetLinkListReq) Reset() {
+	*x = AssetLinkListReq{}
 	mi := &file_tools_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MicroAppDetailReq) String() string {
+func (x *AssetLinkListReq) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MicroAppDetailReq) ProtoMessage() {}
+func (*AssetLinkListReq) ProtoMessage() {}
 
-func (x *MicroAppDetailReq) ProtoReflect() protoreflect.Message {
+func (x *AssetLinkListReq) ProtoReflect() protoreflect.Message {
 	mi := &file_tools_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -990,49 +990,49 @@ func (x *MicroAppDetailReq) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MicroAppDetailReq.ProtoReflect.Descriptor instead.
-func (*MicroAppDetailReq) Descriptor() ([]byte, []int) {
+// Deprecated: Use AssetLinkListReq.ProtoReflect.Descriptor instead.
+func (*AssetLinkListReq) Descriptor() ([]byte, []int) {
 	return file_tools_proto_rawDescGZIP(), []int{12}
 }
 
-func (x *MicroAppDetailReq) GetConf() *Conf {
+func (x *AssetLinkListReq) GetConf() *Conf {
 	if x != nil {
 		return x.Conf
 	}
 	return nil
 }
 
-func (x *MicroAppDetailReq) GetParams() *MicroAppDetailParams {
+func (x *AssetLinkListReq) GetParams() *AssetLinkListParams {
 	if x != nil {
 		return x.Params
 	}
 	return nil
 }
 
-type MicroAppDetailParams struct {
-	state         protoimpl.MessageState         `protogen:"open.v1"`
-	AdvertiserId  int64                          `protobuf:"varint,1,opt,name=advertiser_id,json=advertiserId,proto3" json:"advertiser_id,omitempty"`
-	Filtering     *MicroAppDetailParamsFiltering `protobuf:"bytes,2,opt,name=filtering,proto3" json:"filtering,omitempty"`
-	Page          int32                          `protobuf:"varint,3,opt,name=page,proto3" json:"page,omitempty"`
-	PageSize      int32                          `protobuf:"varint,4,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
+type AssetLinkListParams struct {
+	state         protoimpl.MessageState        `protogen:"open.v1"`
+	AdvertiserId  int64                         `protobuf:"varint,1,opt,name=advertiser_id,json=advertiserId,proto3" json:"advertiser_id,omitempty"`
+	Filtering     *AssetLinkListParamsFiltering `protobuf:"bytes,2,opt,name=filtering,proto3" json:"filtering,omitempty"`
+	Page          int32                         `protobuf:"varint,3,opt,name=page,proto3" json:"page,omitempty"`
+	PageSize      int32                         `protobuf:"varint,4,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MicroAppDetailParams) Reset() {
-	*x = MicroAppDetailParams{}
+func (x *AssetLinkListParams) Reset() {
+	*x = AssetLinkListParams{}
 	mi := &file_tools_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MicroAppDetailParams) String() string {
+func (x *AssetLinkListParams) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MicroAppDetailParams) ProtoMessage() {}
+func (*AssetLinkListParams) ProtoMessage() {}
 
-func (x *MicroAppDetailParams) ProtoReflect() protoreflect.Message {
+func (x *AssetLinkListParams) ProtoReflect() protoreflect.Message {
 	mi := &file_tools_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1044,61 +1044,61 @@ func (x *MicroAppDetailParams) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MicroAppDetailParams.ProtoReflect.Descriptor instead.
-func (*MicroAppDetailParams) Descriptor() ([]byte, []int) {
+// Deprecated: Use AssetLinkListParams.ProtoReflect.Descriptor instead.
+func (*AssetLinkListParams) Descriptor() ([]byte, []int) {
 	return file_tools_proto_rawDescGZIP(), []int{13}
 }
 
-func (x *MicroAppDetailParams) GetAdvertiserId() int64 {
+func (x *AssetLinkListParams) GetAdvertiserId() int64 {
 	if x != nil {
 		return x.AdvertiserId
 	}
 	return 0
 }
 
-func (x *MicroAppDetailParams) GetFiltering() *MicroAppDetailParamsFiltering {
+func (x *AssetLinkListParams) GetFiltering() *AssetLinkListParamsFiltering {
 	if x != nil {
 		return x.Filtering
 	}
 	return nil
 }
 
-func (x *MicroAppDetailParams) GetPage() int32 {
+func (x *AssetLinkListParams) GetPage() int32 {
 	if x != nil {
 		return x.Page
 	}
 	return 0
 }
 
-func (x *MicroAppDetailParams) GetPageSize() int32 {
+func (x *AssetLinkListParams) GetPageSize() int32 {
 	if x != nil {
 		return x.PageSize
 	}
 	return 0
 }
 
-type MicroAppDetailParamsFiltering struct {
-	state         protoimpl.MessageState             `protogen:"open.v1"`
-	InstanceId    int64                              `protobuf:"varint,1,opt,name=instance_id,json=instanceId,proto3" json:"instance_id,omitempty"`
-	CreateTime    *MicroAppDetailParamsFilteringTime `protobuf:"bytes,2,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+type AssetLinkListParamsFiltering struct {
+	state         protoimpl.MessageState            `protogen:"open.v1"`
+	InstanceId    int64                             `protobuf:"varint,1,opt,name=instance_id,json=instanceId,proto3" json:"instance_id,omitempty"`
+	CreateTime    *AssetLinkListParamsFilteringTime `protobuf:"bytes,2,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MicroAppDetailParamsFiltering) Reset() {
-	*x = MicroAppDetailParamsFiltering{}
+func (x *AssetLinkListParamsFiltering) Reset() {
+	*x = AssetLinkListParamsFiltering{}
 	mi := &file_tools_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MicroAppDetailParamsFiltering) String() string {
+func (x *AssetLinkListParamsFiltering) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MicroAppDetailParamsFiltering) ProtoMessage() {}
+func (*AssetLinkListParamsFiltering) ProtoMessage() {}
 
-func (x *MicroAppDetailParamsFiltering) ProtoReflect() protoreflect.Message {
+func (x *AssetLinkListParamsFiltering) ProtoReflect() protoreflect.Message {
 	mi := &file_tools_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1110,26 +1110,26 @@ func (x *MicroAppDetailParamsFiltering) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MicroAppDetailParamsFiltering.ProtoReflect.Descriptor instead.
-func (*MicroAppDetailParamsFiltering) Descriptor() ([]byte, []int) {
+// Deprecated: Use AssetLinkListParamsFiltering.ProtoReflect.Descriptor instead.
+func (*AssetLinkListParamsFiltering) Descriptor() ([]byte, []int) {
 	return file_tools_proto_rawDescGZIP(), []int{14}
 }
 
-func (x *MicroAppDetailParamsFiltering) GetInstanceId() int64 {
+func (x *AssetLinkListParamsFiltering) GetInstanceId() int64 {
 	if x != nil {
 		return x.InstanceId
 	}
 	return 0
 }
 
-func (x *MicroAppDetailParamsFiltering) GetCreateTime() *MicroAppDetailParamsFilteringTime {
+func (x *AssetLinkListParamsFiltering) GetCreateTime() *AssetLinkListParamsFilteringTime {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-type MicroAppDetailParamsFilteringTime struct {
+type AssetLinkListParamsFilteringTime struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	StartTime     string                 `protobuf:"bytes,1,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
 	EndTime       string                 `protobuf:"bytes,2,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
@@ -1137,20 +1137,20 @@ type MicroAppDetailParamsFilteringTime struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MicroAppDetailParamsFilteringTime) Reset() {
-	*x = MicroAppDetailParamsFilteringTime{}
+func (x *AssetLinkListParamsFilteringTime) Reset() {
+	*x = AssetLinkListParamsFilteringTime{}
 	mi := &file_tools_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MicroAppDetailParamsFilteringTime) String() string {
+func (x *AssetLinkListParamsFilteringTime) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MicroAppDetailParamsFilteringTime) ProtoMessage() {}
+func (*AssetLinkListParamsFilteringTime) ProtoMessage() {}
 
-func (x *MicroAppDetailParamsFilteringTime) ProtoReflect() protoreflect.Message {
+func (x *AssetLinkListParamsFilteringTime) ProtoReflect() protoreflect.Message {
 	mi := &file_tools_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1162,49 +1162,49 @@ func (x *MicroAppDetailParamsFilteringTime) ProtoReflect() protoreflect.Message 
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MicroAppDetailParamsFilteringTime.ProtoReflect.Descriptor instead.
-func (*MicroAppDetailParamsFilteringTime) Descriptor() ([]byte, []int) {
+// Deprecated: Use AssetLinkListParamsFilteringTime.ProtoReflect.Descriptor instead.
+func (*AssetLinkListParamsFilteringTime) Descriptor() ([]byte, []int) {
 	return file_tools_proto_rawDescGZIP(), []int{15}
 }
 
-func (x *MicroAppDetailParamsFilteringTime) GetStartTime() string {
+func (x *AssetLinkListParamsFilteringTime) GetStartTime() string {
 	if x != nil {
 		return x.StartTime
 	}
 	return ""
 }
 
-func (x *MicroAppDetailParamsFilteringTime) GetEndTime() string {
+func (x *AssetLinkListParamsFilteringTime) GetEndTime() string {
 	if x != nil {
 		return x.EndTime
 	}
 	return ""
 }
 
-type MicroAppDetailResp struct {
+type AssetLinkListResp struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Code          int32                  `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
 	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
 	RequestId     string                 `protobuf:"bytes,3,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
-	Data          *MicroAppDetailData    `protobuf:"bytes,4,opt,name=data,proto3" json:"data,omitempty"`
+	Data          *AssetLinkListData     `protobuf:"bytes,4,opt,name=data,proto3" json:"data,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MicroAppDetailResp) Reset() {
-	*x = MicroAppDetailResp{}
+func (x *AssetLinkListResp) Reset() {
+	*x = AssetLinkListResp{}
 	mi := &file_tools_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MicroAppDetailResp) String() string {
+func (x *AssetLinkListResp) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MicroAppDetailResp) ProtoMessage() {}
+func (*AssetLinkListResp) ProtoMessage() {}
 
-func (x *MicroAppDetailResp) ProtoReflect() protoreflect.Message {
+func (x *AssetLinkListResp) ProtoReflect() protoreflect.Message {
 	mi := &file_tools_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1216,61 +1216,61 @@ func (x *MicroAppDetailResp) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MicroAppDetailResp.ProtoReflect.Descriptor instead.
-func (*MicroAppDetailResp) Descriptor() ([]byte, []int) {
+// Deprecated: Use AssetLinkListResp.ProtoReflect.Descriptor instead.
+func (*AssetLinkListResp) Descriptor() ([]byte, []int) {
 	return file_tools_proto_rawDescGZIP(), []int{16}
 }
 
-func (x *MicroAppDetailResp) GetCode() int32 {
+func (x *AssetLinkListResp) GetCode() int32 {
 	if x != nil {
 		return x.Code
 	}
 	return 0
 }
 
-func (x *MicroAppDetailResp) GetMessage() string {
+func (x *AssetLinkListResp) GetMessage() string {
 	if x != nil {
 		return x.Message
 	}
 	return ""
 }
 
-func (x *MicroAppDetailResp) GetRequestId() string {
+func (x *AssetLinkListResp) GetRequestId() string {
 	if x != nil {
 		return x.RequestId
 	}
 	return ""
 }
 
-func (x *MicroAppDetailResp) GetData() *MicroAppDetailData {
+func (x *AssetLinkListResp) GetData() *AssetLinkListData {
 	if x != nil {
 		return x.Data
 	}
 	return nil
 }
 
-type MicroAppDetailData struct {
+type AssetLinkListData struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	List          []*MicroAppDetailItem  `protobuf:"bytes,1,rep,name=list,proto3" json:"list,omitempty"`
+	List          []*AssetLinkListItem   `protobuf:"bytes,1,rep,name=list,proto3" json:"list,omitempty"`
 	PageInfo      *PageInfo              `protobuf:"bytes,2,opt,name=page_info,json=pageInfo,proto3" json:"page_info,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MicroAppDetailData) Reset() {
-	*x = MicroAppDetailData{}
+func (x *AssetLinkListData) Reset() {
+	*x = AssetLinkListData{}
 	mi := &file_tools_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MicroAppDetailData) String() string {
+func (x *AssetLinkListData) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MicroAppDetailData) ProtoMessage() {}
+func (*AssetLinkListData) ProtoMessage() {}
 
-func (x *MicroAppDetailData) ProtoReflect() protoreflect.Message {
+func (x *AssetLinkListData) ProtoReflect() protoreflect.Message {
 	mi := &file_tools_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1282,26 +1282,26 @@ func (x *MicroAppDetailData) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MicroAppDetailData.ProtoReflect.Descriptor instead.
-func (*MicroAppDetailData) Descriptor() ([]byte, []int) {
+// Deprecated: Use AssetLinkListData.ProtoReflect.Descriptor instead.
+func (*AssetLinkListData) Descriptor() ([]byte, []int) {
 	return file_tools_proto_rawDescGZIP(), []int{17}
 }
 
-func (x *MicroAppDetailData) GetList() []*MicroAppDetailItem {
+func (x *AssetLinkListData) GetList() []*AssetLinkListItem {
 	if x != nil {
 		return x.List
 	}
 	return nil
 }
 
-func (x *MicroAppDetailData) GetPageInfo() *PageInfo {
+func (x *AssetLinkListData) GetPageInfo() *PageInfo {
 	if x != nil {
 		return x.PageInfo
 	}
 	return nil
 }
 
-type MicroAppDetailItem struct {
+type AssetLinkListItem struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	LinkId        int64                  `protobuf:"varint,1,opt,name=link_id,json=linkId,proto3" json:"link_id,omitempty"`
 	InstanceId    int64                  `protobuf:"varint,2,opt,name=instance_id,json=instanceId,proto3" json:"instance_id,omitempty"`
@@ -1317,20 +1317,20 @@ type MicroAppDetailItem struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MicroAppDetailItem) Reset() {
-	*x = MicroAppDetailItem{}
+func (x *AssetLinkListItem) Reset() {
+	*x = AssetLinkListItem{}
 	mi := &file_tools_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MicroAppDetailItem) String() string {
+func (x *AssetLinkListItem) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MicroAppDetailItem) ProtoMessage() {}
+func (*AssetLinkListItem) ProtoMessage() {}
 
-func (x *MicroAppDetailItem) ProtoReflect() protoreflect.Message {
+func (x *AssetLinkListItem) ProtoReflect() protoreflect.Message {
 	mi := &file_tools_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1342,75 +1342,75 @@ func (x *MicroAppDetailItem) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MicroAppDetailItem.ProtoReflect.Descriptor instead.
-func (*MicroAppDetailItem) Descriptor() ([]byte, []int) {
+// Deprecated: Use AssetLinkListItem.ProtoReflect.Descriptor instead.
+func (*AssetLinkListItem) Descriptor() ([]byte, []int) {
 	return file_tools_proto_rawDescGZIP(), []int{18}
 }
 
-func (x *MicroAppDetailItem) GetLinkId() int64 {
+func (x *AssetLinkListItem) GetLinkId() int64 {
 	if x != nil {
 		return x.LinkId
 	}
 	return 0
 }
 
-func (x *MicroAppDetailItem) GetInstanceId() int64 {
+func (x *AssetLinkListItem) GetInstanceId() int64 {
 	if x != nil {
 		return x.InstanceId
 	}
 	return 0
 }
 
-func (x *MicroAppDetailItem) GetAdvertiserId() int64 {
+func (x *AssetLinkListItem) GetAdvertiserId() int64 {
 	if x != nil {
 		return x.AdvertiserId
 	}
 	return 0
 }
 
-func (x *MicroAppDetailItem) GetAppId() string {
+func (x *AssetLinkListItem) GetAppId() string {
 	if x != nil {
 		return x.AppId
 	}
 	return ""
 }
 
-func (x *MicroAppDetailItem) GetLink() string {
+func (x *AssetLinkListItem) GetLink() string {
 	if x != nil {
 		return x.Link
 	}
 	return ""
 }
 
-func (x *MicroAppDetailItem) GetLinkRemark() string {
+func (x *AssetLinkListItem) GetLinkRemark() string {
 	if x != nil {
 		return x.LinkRemark
 	}
 	return ""
 }
 
-func (x *MicroAppDetailItem) GetStartPage() string {
+func (x *AssetLinkListItem) GetStartPage() string {
 	if x != nil {
 		return x.StartPage
 	}
 	return ""
 }
 
-func (x *MicroAppDetailItem) GetStartParam() string {
+func (x *AssetLinkListItem) GetStartParam() string {
 	if x != nil {
 		return x.StartParam
 	}
 	return ""
 }
 
-func (x *MicroAppDetailItem) GetCreateTime() string {
+func (x *AssetLinkListItem) GetCreateTime() string {
 	if x != nil {
 		return x.CreateTime
 	}
 	return ""
 }
 
-func (x *MicroAppDetailItem) GetModifyTime() string {
+func (x *AssetLinkListItem) GetModifyTime() string {
 	if x != nil {
 		return x.ModifyTime
 	}
@@ -1514,35 +1514,35 @@ const file_tools_proto_rawDesc = "" +
 	"\x16mid_payment_tier_range\x18\x13 \x01(\tR\x13midPaymentTierRange\x123\n" +
 	"\x16max_payment_tier_range\x18\x14 \x01(\tR\x13maxPaymentTierRange\x12!\n" +
 	"\fhas_discount\x18\x15 \x01(\bR\vhasDiscount\x12#\n" +
-	"\rdiscount_rate\x18\x16 \x01(\x03R\fdiscountRate\"h\n" +
-	"\x11MicroAppDetailReq\x12\x1e\n" +
+	"\rdiscount_rate\x18\x16 \x01(\x03R\fdiscountRate\"f\n" +
+	"\x10AssetLinkListReq\x12\x1e\n" +
 	"\x04conf\x18\x01 \x01(\v2\n" +
-	".conf.ConfR\x04conf\x123\n" +
-	"\x06params\x18\x02 \x01(\v2\x1b.ocean.MicroAppDetailParamsR\x06params\"\xb0\x01\n" +
-	"\x14MicroAppDetailParams\x12#\n" +
-	"\radvertiser_id\x18\x01 \x01(\x03R\fadvertiserId\x12B\n" +
-	"\tfiltering\x18\x02 \x01(\v2$.ocean.MicroAppDetailParamsFilteringR\tfiltering\x12\x12\n" +
+	".conf.ConfR\x04conf\x122\n" +
+	"\x06params\x18\x02 \x01(\v2\x1a.ocean.AssetLinkListParamsR\x06params\"\xae\x01\n" +
+	"\x13AssetLinkListParams\x12#\n" +
+	"\radvertiser_id\x18\x01 \x01(\x03R\fadvertiserId\x12A\n" +
+	"\tfiltering\x18\x02 \x01(\v2#.ocean.AssetLinkListParamsFilteringR\tfiltering\x12\x12\n" +
 	"\x04page\x18\x03 \x01(\x05R\x04page\x12\x1b\n" +
-	"\tpage_size\x18\x04 \x01(\x05R\bpageSize\"\x8b\x01\n" +
-	"\x1dMicroAppDetailParamsFiltering\x12\x1f\n" +
+	"\tpage_size\x18\x04 \x01(\x05R\bpageSize\"\x89\x01\n" +
+	"\x1cAssetLinkListParamsFiltering\x12\x1f\n" +
 	"\vinstance_id\x18\x01 \x01(\x03R\n" +
-	"instanceId\x12I\n" +
-	"\vcreate_time\x18\x02 \x01(\v2(.ocean.MicroAppDetailParamsFilteringTimeR\n" +
-	"createTime\"]\n" +
-	"!MicroAppDetailParamsFilteringTime\x12\x1d\n" +
+	"instanceId\x12H\n" +
+	"\vcreate_time\x18\x02 \x01(\v2'.ocean.AssetLinkListParamsFilteringTimeR\n" +
+	"createTime\"\\\n" +
+	" AssetLinkListParamsFilteringTime\x12\x1d\n" +
 	"\n" +
 	"start_time\x18\x01 \x01(\tR\tstartTime\x12\x19\n" +
-	"\bend_time\x18\x02 \x01(\tR\aendTime\"\x90\x01\n" +
-	"\x12MicroAppDetailResp\x12\x12\n" +
+	"\bend_time\x18\x02 \x01(\tR\aendTime\"\x8e\x01\n" +
+	"\x11AssetLinkListResp\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\x05R\x04code\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12\x1d\n" +
 	"\n" +
-	"request_id\x18\x03 \x01(\tR\trequestId\x12-\n" +
-	"\x04data\x18\x04 \x01(\v2\x19.ocean.MicroAppDetailDataR\x04data\"p\n" +
-	"\x12MicroAppDetailData\x12-\n" +
-	"\x04list\x18\x01 \x03(\v2\x19.ocean.MicroAppDetailItemR\x04list\x12+\n" +
-	"\tpage_info\x18\x02 \x01(\v2\x0e.conf.PageInfoR\bpageInfo\"\xc1\x02\n" +
-	"\x12MicroAppDetailItem\x12\x17\n" +
+	"request_id\x18\x03 \x01(\tR\trequestId\x12,\n" +
+	"\x04data\x18\x04 \x01(\v2\x18.ocean.AssetLinkListDataR\x04data\"n\n" +
+	"\x11AssetLinkListData\x12,\n" +
+	"\x04list\x18\x01 \x03(\v2\x18.ocean.AssetLinkListItemR\x04list\x12+\n" +
+	"\tpage_info\x18\x02 \x01(\v2\x0e.conf.PageInfoR\bpageInfo\"\xc0\x02\n" +
+	"\x11AssetLinkListItem\x12\x17\n" +
 	"\alink_id\x18\x01 \x01(\x03R\x06linkId\x12\x1f\n" +
 	"\vinstance_id\x18\x02 \x01(\x03R\n" +
 	"instanceId\x12#\n" +
@@ -1575,27 +1575,27 @@ func file_tools_proto_rawDescGZIP() []byte {
 
 var file_tools_proto_msgTypes = make([]protoimpl.MessageInfo, 19)
 var file_tools_proto_goTypes = []any{
-	(*SharedAdvertiser)(nil),                  // 0: ocean.SharedAdvertiser
-	(*AwemesData)(nil),                        // 1: ocean.AwemesData
-	(*AwemesReq)(nil),                         // 2: ocean.AwemesReq
-	(*AwemesReqParams)(nil),                   // 3: ocean.AwemesReqParams
-	(*AwemesResp)(nil),                        // 4: ocean.AwemesResp
-	(*MicroAppListReq)(nil),                   // 5: ocean.MicroAppListReq
-	(*MicroAppListParams)(nil),                // 6: ocean.MicroAppListParams
-	(*MicroAppListParamsFiltering)(nil),       // 7: ocean.MicroAppListParamsFiltering
-	(*MicroAppListParamsFilteringTime)(nil),   // 8: ocean.MicroAppListParamsFilteringTime
-	(*MicroAppListResp)(nil),                  // 9: ocean.MicroAppListResp
-	(*MicroAppListData)(nil),                  // 10: ocean.MicroAppListData
-	(*MicroAppListItem)(nil),                  // 11: ocean.MicroAppListItem
-	(*MicroAppDetailReq)(nil),                 // 12: ocean.MicroAppDetailReq
-	(*MicroAppDetailParams)(nil),              // 13: ocean.MicroAppDetailParams
-	(*MicroAppDetailParamsFiltering)(nil),     // 14: ocean.MicroAppDetailParamsFiltering
-	(*MicroAppDetailParamsFilteringTime)(nil), // 15: ocean.MicroAppDetailParamsFilteringTime
-	(*MicroAppDetailResp)(nil),                // 16: ocean.MicroAppDetailResp
-	(*MicroAppDetailData)(nil),                // 17: ocean.MicroAppDetailData
-	(*MicroAppDetailItem)(nil),                // 18: ocean.MicroAppDetailItem
-	(*Conf)(nil),                              // 19: conf.Conf
-	(*PageInfo)(nil),                          // 20: conf.PageInfo
+	(*SharedAdvertiser)(nil),                 // 0: ocean.SharedAdvertiser
+	(*AwemesData)(nil),                       // 1: ocean.AwemesData
+	(*AwemesReq)(nil),                        // 2: ocean.AwemesReq
+	(*AwemesReqParams)(nil),                  // 3: ocean.AwemesReqParams
+	(*AwemesResp)(nil),                       // 4: ocean.AwemesResp
+	(*MicroAppListReq)(nil),                  // 5: ocean.MicroAppListReq
+	(*MicroAppListParams)(nil),               // 6: ocean.MicroAppListParams
+	(*MicroAppListParamsFiltering)(nil),      // 7: ocean.MicroAppListParamsFiltering
+	(*MicroAppListParamsFilteringTime)(nil),  // 8: ocean.MicroAppListParamsFilteringTime
+	(*MicroAppListResp)(nil),                 // 9: ocean.MicroAppListResp
+	(*MicroAppListData)(nil),                 // 10: ocean.MicroAppListData
+	(*MicroAppListItem)(nil),                 // 11: ocean.MicroAppListItem
+	(*AssetLinkListReq)(nil),                 // 12: ocean.AssetLinkListReq
+	(*AssetLinkListParams)(nil),              // 13: ocean.AssetLinkListParams
+	(*AssetLinkListParamsFiltering)(nil),     // 14: ocean.AssetLinkListParamsFiltering
+	(*AssetLinkListParamsFilteringTime)(nil), // 15: ocean.AssetLinkListParamsFilteringTime
+	(*AssetLinkListResp)(nil),                // 16: ocean.AssetLinkListResp
+	(*AssetLinkListData)(nil),                // 17: ocean.AssetLinkListData
+	(*AssetLinkListItem)(nil),                // 18: ocean.AssetLinkListItem
+	(*Conf)(nil),                             // 19: conf.Conf
+	(*PageInfo)(nil),                         // 20: conf.PageInfo
 }
 var file_tools_proto_depIdxs = []int32{
 	0,  // 0: ocean.AwemesData.shared_advertisers:type_name -> ocean.SharedAdvertiser
@@ -1609,13 +1609,13 @@ var file_tools_proto_depIdxs = []int32{
 	10, // 8: ocean.MicroAppListResp.data:type_name -> ocean.MicroAppListData
 	11, // 9: ocean.MicroAppListData.list:type_name -> ocean.MicroAppListItem
 	20, // 10: ocean.MicroAppListData.page_info:type_name -> conf.PageInfo
-	19, // 11: ocean.MicroAppDetailReq.conf:type_name -> conf.Conf
-	13, // 12: ocean.MicroAppDetailReq.params:type_name -> ocean.MicroAppDetailParams
-	14, // 13: ocean.MicroAppDetailParams.filtering:type_name -> ocean.MicroAppDetailParamsFiltering
-	15, // 14: ocean.MicroAppDetailParamsFiltering.create_time:type_name -> ocean.MicroAppDetailParamsFilteringTime
-	17, // 15: ocean.MicroAppDetailResp.data:type_name -> ocean.MicroAppDetailData
-	18, // 16: ocean.MicroAppDetailData.list:type_name -> ocean.MicroAppDetailItem
-	20, // 17: ocean.MicroAppDetailData.page_info:type_name -> conf.PageInfo
+	19, // 11: ocean.AssetLinkListReq.conf:type_name -> conf.Conf
+	13, // 12: ocean.AssetLinkListReq.params:type_name -> ocean.AssetLinkListParams
+	14, // 13: ocean.AssetLinkListParams.filtering:type_name -> ocean.AssetLinkListParamsFiltering
+	15, // 14: ocean.AssetLinkListParamsFiltering.create_time:type_name -> ocean.AssetLinkListParamsFilteringTime
+	17, // 15: ocean.AssetLinkListResp.data:type_name -> ocean.AssetLinkListData
+	18, // 16: ocean.AssetLinkListData.list:type_name -> ocean.AssetLinkListItem
+	20, // 17: ocean.AssetLinkListData.page_info:type_name -> conf.PageInfo
 	18, // [18:18] is the sub-list for method output_type
 	18, // [18:18] is the sub-list for method input_type
 	18, // [18:18] is the sub-list for extension type_name

@@ -24,7 +24,7 @@ var File_ocean_proto protoreflect.FileDescriptor
 
 const file_ocean_proto_rawDesc = "" +
 	"\n" +
-	"\vocean.proto\x12\x05ocean\x1a\vtools.proto\x1a\fstatus.proto\x1a\x0ematerial.proto2\xab\x04\n" +
+	"\vocean.proto\x12\x05ocean\x1a\vtools.proto\x1a\fstatus.proto\x1a\x0ematerial.proto2\xa8\x04\n" +
 	"\x03Api\x123\n" +
 	"\bQueueLen\x12\x12.ocean.QueueLenReq\x1a\x13.ocean.QueueLenResp\x12-\n" +
 	"\x06Awemes\x12\x10.ocean.AwemesReq\x1a\x11.ocean.AwemesResp\x12N\n" +
@@ -32,8 +32,8 @@ const file_ocean_proto_rawDesc = "" +
 	"\vFileImageAd\x12\x15.ocean.FileImageAdReq\x1a\x16.ocean.FileImageAdResp\x12W\n" +
 	"\x14FileUploadTaskCreate\x12\x1e.ocean.FileUploadTaskCreateReq\x1a\x1f.ocean.FileUploadTaskCreateResp\x12Q\n" +
 	"\x12FileUploadTaskList\x12\x1c.ocean.FileUploadTaskListReq\x1a\x1d.ocean.FileUploadTaskListResp\x12?\n" +
-	"\fMicroAppList\x12\x16.ocean.MicroAppListReq\x1a\x17.ocean.MicroAppListResp\x12E\n" +
-	"\x0eMicroAppDetail\x12\x18.ocean.MicroAppDetailReq\x1a\x19.ocean.MicroAppDetailRespB-Z+github.com/nbzhu/ad-api-gateway-proto;protob\x06proto3"
+	"\fMicroAppList\x12\x16.ocean.MicroAppListReq\x1a\x17.ocean.MicroAppListResp\x12B\n" +
+	"\rAssetLinkList\x12\x17.ocean.AssetLinkListReq\x1a\x18.ocean.AssetLinkListRespB-Z+github.com/nbzhu/ad-api-gateway-proto;protob\x06proto3"
 
 var file_ocean_proto_goTypes = []any{
 	(*QueueLenReq)(nil),              // 0: ocean.QueueLenReq
@@ -43,7 +43,7 @@ var file_ocean_proto_goTypes = []any{
 	(*FileUploadTaskCreateReq)(nil),  // 4: ocean.FileUploadTaskCreateReq
 	(*FileUploadTaskListReq)(nil),    // 5: ocean.FileUploadTaskListReq
 	(*MicroAppListReq)(nil),          // 6: ocean.MicroAppListReq
-	(*MicroAppDetailReq)(nil),        // 7: ocean.MicroAppDetailReq
+	(*AssetLinkListReq)(nil),         // 7: ocean.AssetLinkListReq
 	(*QueueLenResp)(nil),             // 8: ocean.QueueLenResp
 	(*AwemesResp)(nil),               // 9: ocean.AwemesResp
 	(*VideoCoverSuggestResp)(nil),    // 10: ocean.VideoCoverSuggestResp
@@ -51,7 +51,7 @@ var file_ocean_proto_goTypes = []any{
 	(*FileUploadTaskCreateResp)(nil), // 12: ocean.FileUploadTaskCreateResp
 	(*FileUploadTaskListResp)(nil),   // 13: ocean.FileUploadTaskListResp
 	(*MicroAppListResp)(nil),         // 14: ocean.MicroAppListResp
-	(*MicroAppDetailResp)(nil),       // 15: ocean.MicroAppDetailResp
+	(*AssetLinkListResp)(nil),        // 15: ocean.AssetLinkListResp
 }
 var file_ocean_proto_depIdxs = []int32{
 	0,  // 0: ocean.Api.QueueLen:input_type -> ocean.QueueLenReq
@@ -61,7 +61,7 @@ var file_ocean_proto_depIdxs = []int32{
 	4,  // 4: ocean.Api.FileUploadTaskCreate:input_type -> ocean.FileUploadTaskCreateReq
 	5,  // 5: ocean.Api.FileUploadTaskList:input_type -> ocean.FileUploadTaskListReq
 	6,  // 6: ocean.Api.MicroAppList:input_type -> ocean.MicroAppListReq
-	7,  // 7: ocean.Api.MicroAppDetail:input_type -> ocean.MicroAppDetailReq
+	7,  // 7: ocean.Api.AssetLinkList:input_type -> ocean.AssetLinkListReq
 	8,  // 8: ocean.Api.QueueLen:output_type -> ocean.QueueLenResp
 	9,  // 9: ocean.Api.Awemes:output_type -> ocean.AwemesResp
 	10, // 10: ocean.Api.VideoCoverSuggest:output_type -> ocean.VideoCoverSuggestResp
@@ -69,7 +69,7 @@ var file_ocean_proto_depIdxs = []int32{
 	12, // 12: ocean.Api.FileUploadTaskCreate:output_type -> ocean.FileUploadTaskCreateResp
 	13, // 13: ocean.Api.FileUploadTaskList:output_type -> ocean.FileUploadTaskListResp
 	14, // 14: ocean.Api.MicroAppList:output_type -> ocean.MicroAppListResp
-	15, // 15: ocean.Api.MicroAppDetail:output_type -> ocean.MicroAppDetailResp
+	15, // 15: ocean.Api.AssetLinkList:output_type -> ocean.AssetLinkListResp
 	8,  // [8:16] is the sub-list for method output_type
 	0,  // [0:8] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

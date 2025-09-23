@@ -102,41 +102,41 @@ message MicroAppListItem {
   int64 discount_rate = 22;
 }
 
-message MicroAppDetailReq {
+message AssetLinkListReq {
   conf.Conf conf = 1;
-  MicroAppDetailParams params = 2;
+  AssetLinkListParams params = 2;
 }
 
-message MicroAppDetailParams {
+message AssetLinkListParams {
   int64 advertiser_id = 1;
-  MicroAppDetailParamsFiltering filtering = 2;
+  AssetLinkListParamsFiltering filtering = 2;
   int32 page = 3;
   int32 page_size = 4;
 }
 
-message MicroAppDetailParamsFiltering {
+message AssetLinkListParamsFiltering {
   int64 instance_id = 1;
-  MicroAppDetailParamsFilteringTime create_time = 2;
+  AssetLinkListParamsFilteringTime create_time = 2;
 }
 
-message MicroAppDetailParamsFilteringTime {
+message AssetLinkListParamsFilteringTime {
   string start_time = 1;
   string end_time = 2;
 }
 
-message MicroAppDetailResp {
+message AssetLinkListResp {
   int32 code = 1;
   string message = 2;
   string request_id = 3;
-  MicroAppDetailData data = 4;
+  AssetLinkListData data = 4;
 }
 
-message MicroAppDetailData {
-  repeated MicroAppDetailItem list = 1;
+message AssetLinkListData {
+  repeated AssetLinkListItem list = 1;
   conf.PageInfo page_info = 2;
 }
 
-message MicroAppDetailItem {
+message AssetLinkListItem {
   int64 link_id = 1;
   int64 instance_id = 2;
   int64 advertiser_id = 3;
