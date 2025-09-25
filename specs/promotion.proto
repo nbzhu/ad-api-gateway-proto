@@ -1,0 +1,29 @@
+syntax = "proto3";
+package ocean;
+option go_package = "github.com/nbzhu/ad-api-gateway-proto;proto";
+
+import "conf.proto";
+
+message PromotionCreateReq {
+  conf.Conf conf = 1;
+  PromotionCreateReqParams params = 2;
+}
+message PromotionCreateReqParams {
+  int64 advertiser_id = 1;
+  bytes body = 2;
+}
+
+message PromotionCreateResp {
+  int32 code = 1;
+  string message = 2;
+  string request_id = 3;
+  PromotionCreateData data = 4;
+}
+message PromotionCreateData {
+  int64 promotion_id = 1;
+  repeated ErrorKeywordsList error_keywords_list = 2;
+}
+message ErrorKeywordsList {
+  string error_keyword = 1;
+  string error_message = 2;
+}

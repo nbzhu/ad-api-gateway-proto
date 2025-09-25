@@ -5,6 +5,8 @@ option go_package = "github.com/nbzhu/ad-api-gateway-proto;proto";
 import "tools.proto";
 import "status.proto";
 import "material.proto";
+import "promotion.proto";
+import "project.proto";
 
 service Api {
   rpc QueueLen (QueueLenReq) returns (QueueLenResp);
@@ -15,4 +17,6 @@ service Api {
   rpc FileUploadTaskList (FileUploadTaskListReq) returns (FileUploadTaskListResp);
   rpc MicroAppList (MicroAppListReq) returns (MicroAppListResp);
   rpc AssetLinkList (AssetLinkListReq) returns (AssetLinkListResp);
+  rpc PromotionCreate (PromotionCreateReq) returns (PromotionCreateResp);
+  rpc ProjectCreate (ProjectCreateReq) returns (ProjectCreateResp);
 }

@@ -1,0 +1,32 @@
+syntax = "proto3";
+package ocean;
+option go_package = "github.com/nbzhu/ad-api-gateway-proto;proto";
+
+import "conf.proto";
+
+message ProjectCreateReq {
+  conf.Conf conf = 1;
+  ProjectCreateReqParams params = 2;
+}
+message ProjectCreateReqParams {
+  int64 advertiser_id = 1;
+  bytes body = 2;
+}
+
+message ProjectCreateResp {
+  int32 code = 1;
+  string message = 2;
+  string request_id = 3;
+  ProjectCreateData data = 4;
+}
+message ProjectCreateData {
+  int64 project_id = 1;
+  string supplementary_agreement_info = 2;
+  int32 auto_project_count = 3;
+  repeated ProjectErrorKeywordsList error_keywords_list = 4;
+  int32 auto_duration_project_count = 5;
+}
+message ProjectErrorKeywordsList {
+  string error_keyword = 1;
+  string error_message = 2;
+}

@@ -27,6 +27,8 @@ const (
 	Api_FileUploadTaskList_FullMethodName   = "/ocean.Api/FileUploadTaskList"
 	Api_MicroAppList_FullMethodName         = "/ocean.Api/MicroAppList"
 	Api_AssetLinkList_FullMethodName        = "/ocean.Api/AssetLinkList"
+	Api_PromotionCreate_FullMethodName      = "/ocean.Api/PromotionCreate"
+	Api_ProjectCreate_FullMethodName        = "/ocean.Api/ProjectCreate"
 )
 
 // ApiClient is the client API for Api service.
@@ -41,6 +43,8 @@ type ApiClient interface {
 	FileUploadTaskList(ctx context.Context, in *FileUploadTaskListReq, opts ...grpc.CallOption) (*FileUploadTaskListResp, error)
 	MicroAppList(ctx context.Context, in *MicroAppListReq, opts ...grpc.CallOption) (*MicroAppListResp, error)
 	AssetLinkList(ctx context.Context, in *AssetLinkListReq, opts ...grpc.CallOption) (*AssetLinkListResp, error)
+	PromotionCreate(ctx context.Context, in *PromotionCreateReq, opts ...grpc.CallOption) (*PromotionCreateResp, error)
+	ProjectCreate(ctx context.Context, in *ProjectCreateReq, opts ...grpc.CallOption) (*ProjectCreateResp, error)
 }
 
 type apiClient struct {
@@ -131,6 +135,26 @@ func (c *apiClient) AssetLinkList(ctx context.Context, in *AssetLinkListReq, opt
 	return out, nil
 }
 
+func (c *apiClient) PromotionCreate(ctx context.Context, in *PromotionCreateReq, opts ...grpc.CallOption) (*PromotionCreateResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PromotionCreateResp)
+	err := c.cc.Invoke(ctx, Api_PromotionCreate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *apiClient) ProjectCreate(ctx context.Context, in *ProjectCreateReq, opts ...grpc.CallOption) (*ProjectCreateResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ProjectCreateResp)
+	err := c.cc.Invoke(ctx, Api_ProjectCreate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ApiServer is the server API for Api service.
 // All implementations must embed UnimplementedApiServer
 // for forward compatibility.
@@ -143,6 +167,8 @@ type ApiServer interface {
 	FileUploadTaskList(context.Context, *FileUploadTaskListReq) (*FileUploadTaskListResp, error)
 	MicroAppList(context.Context, *MicroAppListReq) (*MicroAppListResp, error)
 	AssetLinkList(context.Context, *AssetLinkListReq) (*AssetLinkListResp, error)
+	PromotionCreate(context.Context, *PromotionCreateReq) (*PromotionCreateResp, error)
+	ProjectCreate(context.Context, *ProjectCreateReq) (*ProjectCreateResp, error)
 	mustEmbedUnimplementedApiServer()
 }
 
@@ -176,6 +202,12 @@ func (UnimplementedApiServer) MicroAppList(context.Context, *MicroAppListReq) (*
 }
 func (UnimplementedApiServer) AssetLinkList(context.Context, *AssetLinkListReq) (*AssetLinkListResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AssetLinkList not implemented")
+}
+func (UnimplementedApiServer) PromotionCreate(context.Context, *PromotionCreateReq) (*PromotionCreateResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PromotionCreate not implemented")
+}
+func (UnimplementedApiServer) ProjectCreate(context.Context, *ProjectCreateReq) (*ProjectCreateResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProjectCreate not implemented")
 }
 func (UnimplementedApiServer) mustEmbedUnimplementedApiServer() {}
 func (UnimplementedApiServer) testEmbeddedByValue()             {}
@@ -342,6 +374,42 @@ func _Api_AssetLinkList_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Api_PromotionCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PromotionCreateReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiServer).PromotionCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Api_PromotionCreate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiServer).PromotionCreate(ctx, req.(*PromotionCreateReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Api_ProjectCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProjectCreateReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiServer).ProjectCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Api_ProjectCreate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiServer).ProjectCreate(ctx, req.(*ProjectCreateReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Api_ServiceDesc is the grpc.ServiceDesc for Api service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -380,6 +448,14 @@ var Api_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "AssetLinkList",
 			Handler:    _Api_AssetLinkList_Handler,
+		},
+		{
+			MethodName: "PromotionCreate",
+			Handler:    _Api_PromotionCreate_Handler,
+		},
+		{
+			MethodName: "ProjectCreate",
+			Handler:    _Api_ProjectCreate_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
