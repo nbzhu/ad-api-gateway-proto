@@ -29,6 +29,7 @@ message VideoCoverSuggestResp {
   string message = 2;
   string request_id = 3;
   VideoCoverSuggestData data = 4;
+  conf.CommonResp common_resp = 5;
 }
 
 message FileImageAdReq {
@@ -81,6 +82,7 @@ message FileUploadTaskCreateResp {
   string message = 2;
   string request_id = 3;
   FileUploadTaskCreateData data = 4;
+  conf.CommonResp common_resp = 5;
 }
 
 message FileUploadTaskCreateData {

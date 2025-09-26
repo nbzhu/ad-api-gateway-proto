@@ -76,7 +76,9 @@ type AppConf struct {
 	// 必传，接口QPS限流值，首次请求时初始化限流器，修改qps重启服务生效
 	Qps uint32 `protobuf:"varint,1,opt,name=qps,proto3" json:"qps,omitempty"`
 	// 必传
-	AccessToken   string `protobuf:"bytes,2,opt,name=access_token,json=accessToken,proto3" json:"access_token,omitempty"`
+	AccessToken string `protobuf:"bytes,2,opt,name=access_token,json=accessToken,proto3" json:"access_token,omitempty"`
+	// 该token属于哪个授权
+	AuthUniKey    string `protobuf:"bytes,3,opt,name=auth_uni_key,json=authUniKey,proto3" json:"auth_uni_key,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -125,6 +127,13 @@ func (x *AppConf) GetAccessToken() string {
 	return ""
 }
 
+func (x *AppConf) GetAuthUniKey() string {
+	if x != nil {
+		return x.AuthUniKey
+	}
+	return ""
+}
+
 type Conf struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 必传，本次请求的优先级
@@ -137,8 +146,10 @@ type Conf struct {
 	MediumPriorityLen uint32 `protobuf:"varint,4,opt,name=medium_priority_len,json=mediumPriorityLen,proto3" json:"medium_priority_len,omitempty"`
 	// 低优先级队列长度，默认9999,注意当队列满时再次请求会报错
 	LowPriorityLen uint32 `protobuf:"varint,5,opt,name=low_priority_len,json=lowPriorityLen,proto3" json:"low_priority_len,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	// 指定授权者 例如创建任务的token必须与获取任务详情的token一致
+	AuthUniKey    string `protobuf:"bytes,6,opt,name=auth_uni_key,json=authUniKey,proto3" json:"auth_uni_key,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Conf) Reset() {
@@ -204,6 +215,13 @@ func (x *Conf) GetLowPriorityLen() uint32 {
 		return x.LowPriorityLen
 	}
 	return 0
+}
+
+func (x *Conf) GetAuthUniKey() string {
+	if x != nil {
+		return x.AuthUniKey
+	}
+	return ""
 }
 
 type PageInfo struct {
@@ -274,21 +292,71 @@ func (x *PageInfo) GetTotalPage() int32 {
 	return 0
 }
 
+// 返回关联参数
+type CommonResp struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// 当前请求使用的token所属授权
+	AuthUniKey    string `protobuf:"bytes,1,opt,name=auth_uni_key,json=authUniKey,proto3" json:"auth_uni_key,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CommonResp) Reset() {
+	*x = CommonResp{}
+	mi := &file_conf_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CommonResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CommonResp) ProtoMessage() {}
+
+func (x *CommonResp) ProtoReflect() protoreflect.Message {
+	mi := &file_conf_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CommonResp.ProtoReflect.Descriptor instead.
+func (*CommonResp) Descriptor() ([]byte, []int) {
+	return file_conf_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *CommonResp) GetAuthUniKey() string {
+	if x != nil {
+		return x.AuthUniKey
+	}
+	return ""
+}
+
 var File_conf_proto protoreflect.FileDescriptor
 
 const file_conf_proto_rawDesc = "" +
 	"\n" +
 	"\n" +
-	"conf.proto\x12\x04conf\">\n" +
+	"conf.proto\x12\x04conf\"`\n" +
 	"\aAppConf\x12\x10\n" +
 	"\x03qps\x18\x01 \x01(\rR\x03qps\x12!\n" +
-	"\faccess_token\x18\x02 \x01(\tR\vaccessToken\"\xd4\x02\n" +
+	"\faccess_token\x18\x02 \x01(\tR\vaccessToken\x12 \n" +
+	"\fauth_uni_key\x18\x03 \x01(\tR\n" +
+	"authUniKey\"\xf6\x02\n" +
 	"\x04Conf\x12*\n" +
 	"\bpriority\x18\x01 \x01(\x0e2\x0e.conf.PriorityR\bpriority\x12H\n" +
 	"\x10access_token_map\x18\x02 \x03(\v2\x1e.conf.Conf.AccessTokenMapEntryR\x0eaccessTokenMap\x12*\n" +
 	"\x11high_priority_len\x18\x03 \x01(\rR\x0fhighPriorityLen\x12.\n" +
 	"\x13medium_priority_len\x18\x04 \x01(\rR\x11mediumPriorityLen\x12(\n" +
-	"\x10low_priority_len\x18\x05 \x01(\rR\x0elowPriorityLen\x1aP\n" +
+	"\x10low_priority_len\x18\x05 \x01(\rR\x0elowPriorityLen\x12 \n" +
+	"\fauth_uni_key\x18\x06 \x01(\tR\n" +
+	"authUniKey\x1aP\n" +
 	"\x13AccessTokenMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12#\n" +
 	"\x05value\x18\x02 \x01(\v2\r.conf.AppConfR\x05value:\x028\x01\"}\n" +
@@ -297,7 +365,11 @@ const file_conf_proto_rawDesc = "" +
 	"\tpage_size\x18\x02 \x01(\x05R\bpageSize\x12!\n" +
 	"\ftotal_number\x18\x03 \x01(\x05R\vtotalNumber\x12\x1d\n" +
 	"\n" +
-	"total_page\x18\x04 \x01(\x05R\ttotalPage*)\n" +
+	"total_page\x18\x04 \x01(\x05R\ttotalPage\".\n" +
+	"\n" +
+	"CommonResp\x12 \n" +
+	"\fauth_uni_key\x18\x01 \x01(\tR\n" +
+	"authUniKey*)\n" +
 	"\bPriority\x12\a\n" +
 	"\x03Low\x10\x00\x12\n" +
 	"\n" +
@@ -317,17 +389,18 @@ func file_conf_proto_rawDescGZIP() []byte {
 }
 
 var file_conf_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_conf_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_conf_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_conf_proto_goTypes = []any{
-	(Priority)(0),    // 0: conf.Priority
-	(*AppConf)(nil),  // 1: conf.AppConf
-	(*Conf)(nil),     // 2: conf.Conf
-	(*PageInfo)(nil), // 3: conf.PageInfo
-	nil,              // 4: conf.Conf.AccessTokenMapEntry
+	(Priority)(0),      // 0: conf.Priority
+	(*AppConf)(nil),    // 1: conf.AppConf
+	(*Conf)(nil),       // 2: conf.Conf
+	(*PageInfo)(nil),   // 3: conf.PageInfo
+	(*CommonResp)(nil), // 4: conf.CommonResp
+	nil,                // 5: conf.Conf.AccessTokenMapEntry
 }
 var file_conf_proto_depIdxs = []int32{
 	0, // 0: conf.Conf.priority:type_name -> conf.Priority
-	4, // 1: conf.Conf.access_token_map:type_name -> conf.Conf.AccessTokenMapEntry
+	5, // 1: conf.Conf.access_token_map:type_name -> conf.Conf.AccessTokenMapEntry
 	1, // 2: conf.Conf.AccessTokenMapEntry.value:type_name -> conf.AppConf
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
@@ -347,7 +420,7 @@ func file_conf_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_conf_proto_rawDesc), len(file_conf_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   4,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

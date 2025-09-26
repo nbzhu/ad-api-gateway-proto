@@ -14,6 +14,8 @@ message AppConf {
   uint32 qps = 1;
   // 必传
   string access_token = 2;
+  // 该token属于哪个授权
+  string auth_uni_key = 3;
 }
 
 message Conf {
@@ -27,6 +29,8 @@ message Conf {
   uint32 medium_priority_len = 4;
   // 低优先级队列长度，默认9999,注意当队列满时再次请求会报错
   uint32 low_priority_len = 5;
+  // 指定授权者 例如创建任务的token必须与获取任务详情的token一致
+  string auth_uni_key = 6;
 }
 
 message PageInfo {
@@ -34,4 +38,10 @@ message PageInfo {
   int32 page_size = 2;
   int32 total_number = 3;
   int32 total_page = 4;
+}
+
+// 返回关联参数
+message CommonResp {
+  // 当前请求使用的token所属授权
+  string auth_uni_key = 1;
 }

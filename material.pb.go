@@ -251,6 +251,7 @@ type VideoCoverSuggestResp struct {
 	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
 	RequestId     string                 `protobuf:"bytes,3,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
 	Data          *VideoCoverSuggestData `protobuf:"bytes,4,opt,name=data,proto3" json:"data,omitempty"`
+	CommonResp    *CommonResp            `protobuf:"bytes,5,opt,name=common_resp,json=commonResp,proto3" json:"common_resp,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -309,6 +310,13 @@ func (x *VideoCoverSuggestResp) GetRequestId() string {
 func (x *VideoCoverSuggestResp) GetData() *VideoCoverSuggestData {
 	if x != nil {
 		return x.Data
+	}
+	return nil
+}
+
+func (x *VideoCoverSuggestResp) GetCommonResp() *CommonResp {
+	if x != nil {
+		return x.CommonResp
 	}
 	return nil
 }
@@ -743,6 +751,7 @@ type FileUploadTaskCreateResp struct {
 	Message       string                    `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
 	RequestId     string                    `protobuf:"bytes,3,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
 	Data          *FileUploadTaskCreateData `protobuf:"bytes,4,opt,name=data,proto3" json:"data,omitempty"`
+	CommonResp    *CommonResp               `protobuf:"bytes,5,opt,name=common_resp,json=commonResp,proto3" json:"common_resp,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -801,6 +810,13 @@ func (x *FileUploadTaskCreateResp) GetRequestId() string {
 func (x *FileUploadTaskCreateResp) GetData() *FileUploadTaskCreateData {
 	if x != nil {
 		return x.Data
+	}
+	return nil
+}
+
+func (x *FileUploadTaskCreateResp) GetCommonResp() *CommonResp {
+	if x != nil {
+		return x.CommonResp
 	}
 	return nil
 }
@@ -1229,13 +1245,15 @@ const file_material_proto_rawDesc = "" +
 	"\x06params\x18\x02 \x01(\v2!.ocean.VideoCoverSuggestReqParamsR\x06params\"\\\n" +
 	"\x1aVideoCoverSuggestReqParams\x12#\n" +
 	"\radvertiser_id\x18\x01 \x01(\x04R\fadvertiserId\x12\x19\n" +
-	"\bvideo_id\x18\x02 \x01(\tR\avideoId\"\x96\x01\n" +
+	"\bvideo_id\x18\x02 \x01(\tR\avideoId\"\xc9\x01\n" +
 	"\x15VideoCoverSuggestResp\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\x05R\x04code\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\x03 \x01(\tR\trequestId\x120\n" +
-	"\x04data\x18\x04 \x01(\v2\x1c.ocean.VideoCoverSuggestDataR\x04data\"e\n" +
+	"\x04data\x18\x04 \x01(\v2\x1c.ocean.VideoCoverSuggestDataR\x04data\x121\n" +
+	"\vcommon_resp\x18\x05 \x01(\v2\x10.conf.CommonRespR\n" +
+	"commonResp\"e\n" +
 	"\x0eFileImageAdReq\x12\x1e\n" +
 	"\x04conf\x18\x01 \x01(\v2\n" +
 	".conf.ConfR\x04conf\x123\n" +
@@ -1272,13 +1290,15 @@ const file_material_proto_rawDesc = "" +
 	"\bfilename\x18\x03 \x01(\tR\bfilename\x12\x16\n" +
 	"\x06labels\x18\x04 \x03(\tR\x06labels\x12\x1b\n" +
 	"\tvideo_url\x18\x05 \x01(\tR\bvideoUrl\x12\x17\n" +
-	"\ais_aigc\x18\x06 \x01(\bR\x06isAigc\"\x9c\x01\n" +
+	"\ais_aigc\x18\x06 \x01(\bR\x06isAigc\"\xcf\x01\n" +
 	"\x18FileUploadTaskCreateResp\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\x05R\x04code\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\x03 \x01(\tR\trequestId\x123\n" +
-	"\x04data\x18\x04 \x01(\v2\x1f.ocean.FileUploadTaskCreateDataR\x04data\"3\n" +
+	"\x04data\x18\x04 \x01(\v2\x1f.ocean.FileUploadTaskCreateDataR\x04data\x121\n" +
+	"\vcommon_resp\x18\x05 \x01(\v2\x10.conf.CommonRespR\n" +
+	"commonResp\"3\n" +
 	"\x18FileUploadTaskCreateData\x12\x17\n" +
 	"\atask_id\x18\x01 \x01(\x04R\x06taskId\"s\n" +
 	"\x15FileUploadTaskListReq\x12\x1e\n" +
@@ -1345,28 +1365,31 @@ var file_material_proto_goTypes = []any{
 	(*FileUploadTaskListItem)(nil),          // 17: ocean.FileUploadTaskListItem
 	(*FileUploadTaskListItemVideoInfo)(nil), // 18: ocean.FileUploadTaskListItemVideoInfo
 	(*Conf)(nil),                            // 19: conf.Conf
+	(*CommonResp)(nil),                      // 20: conf.CommonResp
 }
 var file_material_proto_depIdxs = []int32{
 	0,  // 0: ocean.VideoCoverSuggestData.list:type_name -> ocean.VideoCoverSuggestList
 	19, // 1: ocean.VideoCoverSuggestReq.conf:type_name -> conf.Conf
 	3,  // 2: ocean.VideoCoverSuggestReq.params:type_name -> ocean.VideoCoverSuggestReqParams
 	1,  // 3: ocean.VideoCoverSuggestResp.data:type_name -> ocean.VideoCoverSuggestData
-	19, // 4: ocean.FileImageAdReq.conf:type_name -> conf.Conf
-	6,  // 5: ocean.FileImageAdReq.params:type_name -> ocean.FileImageAdReqParams
-	8,  // 6: ocean.FileImageAdResp.data:type_name -> ocean.FileImageAdData
-	19, // 7: ocean.FileUploadTaskCreateReq.conf:type_name -> conf.Conf
-	10, // 8: ocean.FileUploadTaskCreateReq.params:type_name -> ocean.FileUploadTaskCreateReqParams
-	12, // 9: ocean.FileUploadTaskCreateResp.data:type_name -> ocean.FileUploadTaskCreateData
-	19, // 10: ocean.FileUploadTaskListReq.conf:type_name -> conf.Conf
-	14, // 11: ocean.FileUploadTaskListReq.params:type_name -> ocean.FileUploadTaskListReqParams
-	16, // 12: ocean.FileUploadTaskListResp.data:type_name -> ocean.FileUploadTaskListData
-	17, // 13: ocean.FileUploadTaskListData.list:type_name -> ocean.FileUploadTaskListItem
-	18, // 14: ocean.FileUploadTaskListItem.video_info:type_name -> ocean.FileUploadTaskListItemVideoInfo
-	15, // [15:15] is the sub-list for method output_type
-	15, // [15:15] is the sub-list for method input_type
-	15, // [15:15] is the sub-list for extension type_name
-	15, // [15:15] is the sub-list for extension extendee
-	0,  // [0:15] is the sub-list for field type_name
+	20, // 4: ocean.VideoCoverSuggestResp.common_resp:type_name -> conf.CommonResp
+	19, // 5: ocean.FileImageAdReq.conf:type_name -> conf.Conf
+	6,  // 6: ocean.FileImageAdReq.params:type_name -> ocean.FileImageAdReqParams
+	8,  // 7: ocean.FileImageAdResp.data:type_name -> ocean.FileImageAdData
+	19, // 8: ocean.FileUploadTaskCreateReq.conf:type_name -> conf.Conf
+	10, // 9: ocean.FileUploadTaskCreateReq.params:type_name -> ocean.FileUploadTaskCreateReqParams
+	12, // 10: ocean.FileUploadTaskCreateResp.data:type_name -> ocean.FileUploadTaskCreateData
+	20, // 11: ocean.FileUploadTaskCreateResp.common_resp:type_name -> conf.CommonResp
+	19, // 12: ocean.FileUploadTaskListReq.conf:type_name -> conf.Conf
+	14, // 13: ocean.FileUploadTaskListReq.params:type_name -> ocean.FileUploadTaskListReqParams
+	16, // 14: ocean.FileUploadTaskListResp.data:type_name -> ocean.FileUploadTaskListData
+	17, // 15: ocean.FileUploadTaskListData.list:type_name -> ocean.FileUploadTaskListItem
+	18, // 16: ocean.FileUploadTaskListItem.video_info:type_name -> ocean.FileUploadTaskListItemVideoInfo
+	17, // [17:17] is the sub-list for method output_type
+	17, // [17:17] is the sub-list for method input_type
+	17, // [17:17] is the sub-list for extension type_name
+	17, // [17:17] is the sub-list for extension extendee
+	0,  // [0:17] is the sub-list for field type_name
 }
 
 func init() { file_material_proto_init() }
