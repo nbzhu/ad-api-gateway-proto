@@ -29,6 +29,7 @@ const (
 	Api_AssetLinkList_FullMethodName        = "/ocean.Api/AssetLinkList"
 	Api_PromotionCreate_FullMethodName      = "/ocean.Api/PromotionCreate"
 	Api_ProjectCreate_FullMethodName        = "/ocean.Api/ProjectCreate"
+	Api_ReportCustomGet_FullMethodName      = "/ocean.Api/ReportCustomGet"
 )
 
 // ApiClient is the client API for Api service.
@@ -45,6 +46,7 @@ type ApiClient interface {
 	AssetLinkList(ctx context.Context, in *AssetLinkListReq, opts ...grpc.CallOption) (*AssetLinkListResp, error)
 	PromotionCreate(ctx context.Context, in *PromotionCreateReq, opts ...grpc.CallOption) (*PromotionCreateResp, error)
 	ProjectCreate(ctx context.Context, in *ProjectCreateReq, opts ...grpc.CallOption) (*ProjectCreateResp, error)
+	ReportCustomGet(ctx context.Context, in *ReportReq, opts ...grpc.CallOption) (*ReportResp, error)
 }
 
 type apiClient struct {
@@ -155,6 +157,16 @@ func (c *apiClient) ProjectCreate(ctx context.Context, in *ProjectCreateReq, opt
 	return out, nil
 }
 
+func (c *apiClient) ReportCustomGet(ctx context.Context, in *ReportReq, opts ...grpc.CallOption) (*ReportResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReportResp)
+	err := c.cc.Invoke(ctx, Api_ReportCustomGet_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ApiServer is the server API for Api service.
 // All implementations must embed UnimplementedApiServer
 // for forward compatibility.
@@ -169,6 +181,7 @@ type ApiServer interface {
 	AssetLinkList(context.Context, *AssetLinkListReq) (*AssetLinkListResp, error)
 	PromotionCreate(context.Context, *PromotionCreateReq) (*PromotionCreateResp, error)
 	ProjectCreate(context.Context, *ProjectCreateReq) (*ProjectCreateResp, error)
+	ReportCustomGet(context.Context, *ReportReq) (*ReportResp, error)
 	mustEmbedUnimplementedApiServer()
 }
 
@@ -208,6 +221,9 @@ func (UnimplementedApiServer) PromotionCreate(context.Context, *PromotionCreateR
 }
 func (UnimplementedApiServer) ProjectCreate(context.Context, *ProjectCreateReq) (*ProjectCreateResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ProjectCreate not implemented")
+}
+func (UnimplementedApiServer) ReportCustomGet(context.Context, *ReportReq) (*ReportResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReportCustomGet not implemented")
 }
 func (UnimplementedApiServer) mustEmbedUnimplementedApiServer() {}
 func (UnimplementedApiServer) testEmbeddedByValue()             {}
@@ -410,6 +426,24 @@ func _Api_ProjectCreate_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Api_ReportCustomGet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReportReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiServer).ReportCustomGet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Api_ReportCustomGet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiServer).ReportCustomGet(ctx, req.(*ReportReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Api_ServiceDesc is the grpc.ServiceDesc for Api service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -456,6 +490,10 @@ var Api_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ProjectCreate",
 			Handler:    _Api_ProjectCreate_Handler,
+		},
+		{
+			MethodName: "ReportCustomGet",
+			Handler:    _Api_ReportCustomGet_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

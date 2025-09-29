@@ -1,0 +1,68 @@
+syntax = "proto3";
+package ocean;
+option go_package = "github.com/nbzhu/ad-api-gateway-proto;proto";
+
+import "conf.proto";
+
+message ReportReq {
+  conf.Conf conf = 1;
+  ReportReqParams params = 2;
+}
+
+message ReportReqParams {
+  int64 advertiser_id = 1;
+  repeated string dimensions = 2;
+  repeated string metrics = 3;
+  string start_time = 4;
+  string end_time = 5;
+
+  repeated OrderBy order_by = 6;
+  repeated Filter filters = 7;
+
+  int32 page = 8;
+  int32 page_size = 9;
+}
+message OrderBy {
+  string field = 1;
+  string type = 2;
+}
+message Filter {
+  string field = 1;
+  FilterType type = 2;
+  Operator operator = 3;
+  repeated string values = 4;
+}
+enum FilterType {
+  FILTER_TYPE_UNSPECIFIED = 0;
+  FILTER_TYPE_ENUM = 1;//1 -固定枚举值
+  FILTER_TYPE_NUMBER = 2;//2 - 固定输入值
+  FILTER_TYPE_STRING = 3;//3 -数值类型
+}
+enum Operator {
+  OPERATOR_UNSPECIFIED = 0;
+  EQUAL = 1;       // =
+  NOT_EQUAL = 2;   // !=
+  GT = 3;          // >
+  GTE = 4;         // >=
+  LT = 5;          // <
+  LTE = 6;         // <=
+  IN = 7;          // IN
+  NOT_IN = 8;      // NOT IN
+}
+
+
+message ReportResp {
+  int32 code = 1;
+  string message = 2;
+  ReportData data = 3;
+  string request_id = 4;
+}
+message ReportData {
+  repeated ReportRow rows = 1;
+  conf.PageInfo page_info = 2;
+  map<string, string> total_metrics = 3;
+}
+message ReportRow {
+  map<string,string> dimensions = 1;
+  map<string,string> metrics = 2;
+}

@@ -7,6 +7,7 @@ import "status.proto";
 import "material.proto";
 import "promotion.proto";
 import "project.proto";
+import "report.proto";
 
 service Api {
   rpc QueueLen (QueueLenReq) returns (QueueLenResp);
@@ -19,4 +20,5 @@ service Api {
   rpc AssetLinkList (AssetLinkListReq) returns (AssetLinkListResp);
   rpc PromotionCreate (PromotionCreateReq) returns (PromotionCreateResp);
   rpc ProjectCreate (ProjectCreateReq) returns (ProjectCreateResp);
+  rpc ReportCustomGet (ReportReq) returns (ReportResp);
 }
