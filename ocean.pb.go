@@ -24,7 +24,7 @@ var File_ocean_proto protoreflect.FileDescriptor
 
 const file_ocean_proto_rawDesc = "" +
 	"\n" +
-	"\vocean.proto\x12\x05ocean\x1a\vtools.proto\x1a\fstatus.proto\x1a\x0ematerial.proto\x1a\x0fpromotion.proto\x1a\rproject.proto\x1a\freport.proto2\xee\x05\n" +
+	"\vocean.proto\x12\x05ocean\x1a\vtools.proto\x1a\fstatus.proto\x1a\x0ematerial.proto\x1a\x0fpromotion.proto\x1a\rproject.proto\x1a\freport.proto\x1a\tqps.proto2\xcf\x06\n" +
 	"\x03Api\x123\n" +
 	"\bQueueLen\x12\x12.ocean.QueueLenReq\x1a\x13.ocean.QueueLenResp\x12-\n" +
 	"\x06Awemes\x12\x10.ocean.AwemesReq\x1a\x11.ocean.AwemesResp\x12N\n" +
@@ -36,7 +36,9 @@ const file_ocean_proto_rawDesc = "" +
 	"\rAssetLinkList\x12\x17.ocean.AssetLinkListReq\x1a\x18.ocean.AssetLinkListResp\x12H\n" +
 	"\x0fPromotionCreate\x12\x19.ocean.PromotionCreateReq\x1a\x1a.ocean.PromotionCreateResp\x12B\n" +
 	"\rProjectCreate\x12\x17.ocean.ProjectCreateReq\x1a\x18.ocean.ProjectCreateResp\x126\n" +
-	"\x0fReportCustomGet\x12\x10.ocean.ReportReq\x1a\x11.ocean.ReportRespB-Z+github.com/nbzhu/ad-api-gateway-proto;protob\x06proto3"
+	"\x0fReportCustomGet\x12\x10.ocean.ReportReq\x1a\x11.ocean.ReportResp\x126\n" +
+	"\tChangeQps\x12\x13.ocean.ChangeQpsReq\x1a\x14.ocean.ChangeQpsResp\x12'\n" +
+	"\x04Test\x12\x0e.ocean.TestReq\x1a\x0f.ocean.TestRespB-Z+github.com/nbzhu/ad-api-gateway-proto;protob\x06proto3"
 
 var file_ocean_proto_goTypes = []any{
 	(*QueueLenReq)(nil),              // 0: ocean.QueueLenReq
@@ -50,17 +52,21 @@ var file_ocean_proto_goTypes = []any{
 	(*PromotionCreateReq)(nil),       // 8: ocean.PromotionCreateReq
 	(*ProjectCreateReq)(nil),         // 9: ocean.ProjectCreateReq
 	(*ReportReq)(nil),                // 10: ocean.ReportReq
-	(*QueueLenResp)(nil),             // 11: ocean.QueueLenResp
-	(*AwemesResp)(nil),               // 12: ocean.AwemesResp
-	(*VideoCoverSuggestResp)(nil),    // 13: ocean.VideoCoverSuggestResp
-	(*FileImageAdResp)(nil),          // 14: ocean.FileImageAdResp
-	(*FileUploadTaskCreateResp)(nil), // 15: ocean.FileUploadTaskCreateResp
-	(*FileUploadTaskListResp)(nil),   // 16: ocean.FileUploadTaskListResp
-	(*MicroAppListResp)(nil),         // 17: ocean.MicroAppListResp
-	(*AssetLinkListResp)(nil),        // 18: ocean.AssetLinkListResp
-	(*PromotionCreateResp)(nil),      // 19: ocean.PromotionCreateResp
-	(*ProjectCreateResp)(nil),        // 20: ocean.ProjectCreateResp
-	(*ReportResp)(nil),               // 21: ocean.ReportResp
+	(*ChangeQpsReq)(nil),             // 11: ocean.ChangeQpsReq
+	(*TestReq)(nil),                  // 12: ocean.TestReq
+	(*QueueLenResp)(nil),             // 13: ocean.QueueLenResp
+	(*AwemesResp)(nil),               // 14: ocean.AwemesResp
+	(*VideoCoverSuggestResp)(nil),    // 15: ocean.VideoCoverSuggestResp
+	(*FileImageAdResp)(nil),          // 16: ocean.FileImageAdResp
+	(*FileUploadTaskCreateResp)(nil), // 17: ocean.FileUploadTaskCreateResp
+	(*FileUploadTaskListResp)(nil),   // 18: ocean.FileUploadTaskListResp
+	(*MicroAppListResp)(nil),         // 19: ocean.MicroAppListResp
+	(*AssetLinkListResp)(nil),        // 20: ocean.AssetLinkListResp
+	(*PromotionCreateResp)(nil),      // 21: ocean.PromotionCreateResp
+	(*ProjectCreateResp)(nil),        // 22: ocean.ProjectCreateResp
+	(*ReportResp)(nil),               // 23: ocean.ReportResp
+	(*ChangeQpsResp)(nil),            // 24: ocean.ChangeQpsResp
+	(*TestResp)(nil),                 // 25: ocean.TestResp
 }
 var file_ocean_proto_depIdxs = []int32{
 	0,  // 0: ocean.Api.QueueLen:input_type -> ocean.QueueLenReq
@@ -74,19 +80,23 @@ var file_ocean_proto_depIdxs = []int32{
 	8,  // 8: ocean.Api.PromotionCreate:input_type -> ocean.PromotionCreateReq
 	9,  // 9: ocean.Api.ProjectCreate:input_type -> ocean.ProjectCreateReq
 	10, // 10: ocean.Api.ReportCustomGet:input_type -> ocean.ReportReq
-	11, // 11: ocean.Api.QueueLen:output_type -> ocean.QueueLenResp
-	12, // 12: ocean.Api.Awemes:output_type -> ocean.AwemesResp
-	13, // 13: ocean.Api.VideoCoverSuggest:output_type -> ocean.VideoCoverSuggestResp
-	14, // 14: ocean.Api.FileImageAd:output_type -> ocean.FileImageAdResp
-	15, // 15: ocean.Api.FileUploadTaskCreate:output_type -> ocean.FileUploadTaskCreateResp
-	16, // 16: ocean.Api.FileUploadTaskList:output_type -> ocean.FileUploadTaskListResp
-	17, // 17: ocean.Api.MicroAppList:output_type -> ocean.MicroAppListResp
-	18, // 18: ocean.Api.AssetLinkList:output_type -> ocean.AssetLinkListResp
-	19, // 19: ocean.Api.PromotionCreate:output_type -> ocean.PromotionCreateResp
-	20, // 20: ocean.Api.ProjectCreate:output_type -> ocean.ProjectCreateResp
-	21, // 21: ocean.Api.ReportCustomGet:output_type -> ocean.ReportResp
-	11, // [11:22] is the sub-list for method output_type
-	0,  // [0:11] is the sub-list for method input_type
+	11, // 11: ocean.Api.ChangeQps:input_type -> ocean.ChangeQpsReq
+	12, // 12: ocean.Api.Test:input_type -> ocean.TestReq
+	13, // 13: ocean.Api.QueueLen:output_type -> ocean.QueueLenResp
+	14, // 14: ocean.Api.Awemes:output_type -> ocean.AwemesResp
+	15, // 15: ocean.Api.VideoCoverSuggest:output_type -> ocean.VideoCoverSuggestResp
+	16, // 16: ocean.Api.FileImageAd:output_type -> ocean.FileImageAdResp
+	17, // 17: ocean.Api.FileUploadTaskCreate:output_type -> ocean.FileUploadTaskCreateResp
+	18, // 18: ocean.Api.FileUploadTaskList:output_type -> ocean.FileUploadTaskListResp
+	19, // 19: ocean.Api.MicroAppList:output_type -> ocean.MicroAppListResp
+	20, // 20: ocean.Api.AssetLinkList:output_type -> ocean.AssetLinkListResp
+	21, // 21: ocean.Api.PromotionCreate:output_type -> ocean.PromotionCreateResp
+	22, // 22: ocean.Api.ProjectCreate:output_type -> ocean.ProjectCreateResp
+	23, // 23: ocean.Api.ReportCustomGet:output_type -> ocean.ReportResp
+	24, // 24: ocean.Api.ChangeQps:output_type -> ocean.ChangeQpsResp
+	25, // 25: ocean.Api.Test:output_type -> ocean.TestResp
+	13, // [13:26] is the sub-list for method output_type
+	0,  // [0:13] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -103,6 +113,7 @@ func file_ocean_proto_init() {
 	file_promotion_proto_init()
 	file_project_proto_init()
 	file_report_proto_init()
+	file_qps_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
