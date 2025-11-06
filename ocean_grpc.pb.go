@@ -30,6 +30,8 @@ const (
 	Api_PromotionCreate_FullMethodName      = "/ocean.Api/PromotionCreate"
 	Api_ProjectCreate_FullMethodName        = "/ocean.Api/ProjectCreate"
 	Api_ReportCustomGet_FullMethodName      = "/ocean.Api/ReportCustomGet"
+	Api_ChangeQps_FullMethodName            = "/ocean.Api/ChangeQps"
+	Api_Test_FullMethodName                 = "/ocean.Api/Test"
 )
 
 // ApiClient is the client API for Api service.
@@ -47,6 +49,8 @@ type ApiClient interface {
 	PromotionCreate(ctx context.Context, in *PromotionCreateReq, opts ...grpc.CallOption) (*PromotionCreateResp, error)
 	ProjectCreate(ctx context.Context, in *ProjectCreateReq, opts ...grpc.CallOption) (*ProjectCreateResp, error)
 	ReportCustomGet(ctx context.Context, in *ReportReq, opts ...grpc.CallOption) (*ReportResp, error)
+	ChangeQps(ctx context.Context, in *ChangeQpsReq, opts ...grpc.CallOption) (*ChangeQpsResp, error)
+	Test(ctx context.Context, in *TestReq, opts ...grpc.CallOption) (*TestResp, error)
 }
 
 type apiClient struct {
@@ -167,6 +171,26 @@ func (c *apiClient) ReportCustomGet(ctx context.Context, in *ReportReq, opts ...
 	return out, nil
 }
 
+func (c *apiClient) ChangeQps(ctx context.Context, in *ChangeQpsReq, opts ...grpc.CallOption) (*ChangeQpsResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ChangeQpsResp)
+	err := c.cc.Invoke(ctx, Api_ChangeQps_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *apiClient) Test(ctx context.Context, in *TestReq, opts ...grpc.CallOption) (*TestResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TestResp)
+	err := c.cc.Invoke(ctx, Api_Test_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ApiServer is the server API for Api service.
 // All implementations must embed UnimplementedApiServer
 // for forward compatibility.
@@ -182,6 +206,8 @@ type ApiServer interface {
 	PromotionCreate(context.Context, *PromotionCreateReq) (*PromotionCreateResp, error)
 	ProjectCreate(context.Context, *ProjectCreateReq) (*ProjectCreateResp, error)
 	ReportCustomGet(context.Context, *ReportReq) (*ReportResp, error)
+	ChangeQps(context.Context, *ChangeQpsReq) (*ChangeQpsResp, error)
+	Test(context.Context, *TestReq) (*TestResp, error)
 	mustEmbedUnimplementedApiServer()
 }
 
@@ -224,6 +250,12 @@ func (UnimplementedApiServer) ProjectCreate(context.Context, *ProjectCreateReq) 
 }
 func (UnimplementedApiServer) ReportCustomGet(context.Context, *ReportReq) (*ReportResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReportCustomGet not implemented")
+}
+func (UnimplementedApiServer) ChangeQps(context.Context, *ChangeQpsReq) (*ChangeQpsResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChangeQps not implemented")
+}
+func (UnimplementedApiServer) Test(context.Context, *TestReq) (*TestResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Test not implemented")
 }
 func (UnimplementedApiServer) mustEmbedUnimplementedApiServer() {}
 func (UnimplementedApiServer) testEmbeddedByValue()             {}
@@ -444,6 +476,42 @@ func _Api_ReportCustomGet_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Api_ChangeQps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangeQpsReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiServer).ChangeQps(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Api_ChangeQps_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiServer).ChangeQps(ctx, req.(*ChangeQpsReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Api_Test_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TestReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiServer).Test(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Api_Test_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiServer).Test(ctx, req.(*TestReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Api_ServiceDesc is the grpc.ServiceDesc for Api service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -494,6 +562,14 @@ var Api_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ReportCustomGet",
 			Handler:    _Api_ReportCustomGet_Handler,
+		},
+		{
+			MethodName: "ChangeQps",
+			Handler:    _Api_ChangeQps_Handler,
+		},
+		{
+			MethodName: "Test",
+			Handler:    _Api_Test_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -1,0 +1,26 @@
+syntax = "proto3";
+package ocean;
+option go_package = "github.com/nbzhu/ad-api-gateway-proto;proto";
+
+import "conf.proto";
+
+message ChangeQpsReq {
+  string fullMethod = 1;
+  string devKey = 2;
+  int32 qps = 3;
+}
+
+message ChangeQpsResp {
+  int32 code = 1;
+  string message = 2;
+}
+
+message TestReq {
+  conf.Conf conf = 1;
+  string data = 2;
+}
+
+message TestResp {
+  int32 code = 1;
+  string message = 2;
+}

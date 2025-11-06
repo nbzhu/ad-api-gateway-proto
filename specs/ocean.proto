@@ -8,6 +8,7 @@ import "material.proto";
 import "promotion.proto";
 import "project.proto";
 import "report.proto";
+import "qps.proto";
 
 service Api {
   rpc QueueLen (QueueLenReq) returns (QueueLenResp);
@@ -21,4 +22,6 @@ service Api {
   rpc PromotionCreate (PromotionCreateReq) returns (PromotionCreateResp);
   rpc ProjectCreate (ProjectCreateReq) returns (ProjectCreateResp);
   rpc ReportCustomGet (ReportReq) returns (ReportResp);
+  rpc ChangeQps (ChangeQpsReq) returns (ChangeQpsResp);
+  rpc Test (TestReq) returns (TestResp);
 }
