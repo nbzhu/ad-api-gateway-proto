@@ -32,6 +32,7 @@ const (
 	Api_ReportCustomGet_FullMethodName      = "/ocean.Api/ReportCustomGet"
 	Api_ChangeQps_FullMethodName            = "/ocean.Api/ChangeQps"
 	Api_Test_FullMethodName                 = "/ocean.Api/Test"
+	Api_One_FullMethodName                  = "/ocean.Api/One"
 )
 
 // ApiClient is the client API for Api service.
@@ -51,6 +52,7 @@ type ApiClient interface {
 	ReportCustomGet(ctx context.Context, in *ReportReq, opts ...grpc.CallOption) (*ReportResp, error)
 	ChangeQps(ctx context.Context, in *ChangeQpsReq, opts ...grpc.CallOption) (*ChangeQpsResp, error)
 	Test(ctx context.Context, in *TestReq, opts ...grpc.CallOption) (*TestResp, error)
+	One(ctx context.Context, in *OneReq, opts ...grpc.CallOption) (*OneResp, error)
 }
 
 type apiClient struct {
@@ -191,6 +193,16 @@ func (c *apiClient) Test(ctx context.Context, in *TestReq, opts ...grpc.CallOpti
 	return out, nil
 }
 
+func (c *apiClient) One(ctx context.Context, in *OneReq, opts ...grpc.CallOption) (*OneResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OneResp)
+	err := c.cc.Invoke(ctx, Api_One_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ApiServer is the server API for Api service.
 // All implementations must embed UnimplementedApiServer
 // for forward compatibility.
@@ -208,6 +220,7 @@ type ApiServer interface {
 	ReportCustomGet(context.Context, *ReportReq) (*ReportResp, error)
 	ChangeQps(context.Context, *ChangeQpsReq) (*ChangeQpsResp, error)
 	Test(context.Context, *TestReq) (*TestResp, error)
+	One(context.Context, *OneReq) (*OneResp, error)
 	mustEmbedUnimplementedApiServer()
 }
 
@@ -256,6 +269,9 @@ func (UnimplementedApiServer) ChangeQps(context.Context, *ChangeQpsReq) (*Change
 }
 func (UnimplementedApiServer) Test(context.Context, *TestReq) (*TestResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Test not implemented")
+}
+func (UnimplementedApiServer) One(context.Context, *OneReq) (*OneResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method One not implemented")
 }
 func (UnimplementedApiServer) mustEmbedUnimplementedApiServer() {}
 func (UnimplementedApiServer) testEmbeddedByValue()             {}
@@ -512,6 +528,24 @@ func _Api_Test_Handler(srv interface{}, ctx context.Context, dec func(interface{
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Api_One_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OneReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiServer).One(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Api_One_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiServer).One(ctx, req.(*OneReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Api_ServiceDesc is the grpc.ServiceDesc for Api service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -570,6 +604,10 @@ var Api_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Test",
 			Handler:    _Api_Test_Handler,
+		},
+		{
+			MethodName: "One",
+			Handler:    _Api_One_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

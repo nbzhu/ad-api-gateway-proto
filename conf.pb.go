@@ -71,6 +71,52 @@ func (Priority) EnumDescriptor() ([]byte, []int) {
 	return file_conf_proto_rawDescGZIP(), []int{0}
 }
 
+type HttpMethod int32
+
+const (
+	HttpMethod_Get  HttpMethod = 0
+	HttpMethod_Post HttpMethod = 1
+)
+
+// Enum value maps for HttpMethod.
+var (
+	HttpMethod_name = map[int32]string{
+		0: "Get",
+		1: "Post",
+	}
+	HttpMethod_value = map[string]int32{
+		"Get":  0,
+		"Post": 1,
+	}
+)
+
+func (x HttpMethod) Enum() *HttpMethod {
+	p := new(HttpMethod)
+	*p = x
+	return p
+}
+
+func (x HttpMethod) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (HttpMethod) Descriptor() protoreflect.EnumDescriptor {
+	return file_conf_proto_enumTypes[1].Descriptor()
+}
+
+func (HttpMethod) Type() protoreflect.EnumType {
+	return &file_conf_proto_enumTypes[1]
+}
+
+func (x HttpMethod) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use HttpMethod.Descriptor instead.
+func (HttpMethod) EnumDescriptor() ([]byte, []int) {
+	return file_conf_proto_rawDescGZIP(), []int{1}
+}
+
 type AppConf struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 必传，接口QPS限流值，首次请求时初始化限流器，修改qps重启服务生效
@@ -374,7 +420,11 @@ const file_conf_proto_rawDesc = "" +
 	"\x03Low\x10\x00\x12\n" +
 	"\n" +
 	"\x06Medium\x10\x01\x12\b\n" +
-	"\x04High\x10\x02B-Z+github.com/nbzhu/ad-api-gateway-proto;protob\x06proto3"
+	"\x04High\x10\x02*\x1f\n" +
+	"\n" +
+	"HttpMethod\x12\a\n" +
+	"\x03Get\x10\x00\x12\b\n" +
+	"\x04Post\x10\x01B-Z+github.com/nbzhu/ad-api-gateway-proto;protob\x06proto3"
 
 var (
 	file_conf_proto_rawDescOnce sync.Once
@@ -388,20 +438,21 @@ func file_conf_proto_rawDescGZIP() []byte {
 	return file_conf_proto_rawDescData
 }
 
-var file_conf_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_conf_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_conf_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_conf_proto_goTypes = []any{
 	(Priority)(0),      // 0: conf.Priority
-	(*AppConf)(nil),    // 1: conf.AppConf
-	(*Conf)(nil),       // 2: conf.Conf
-	(*PageInfo)(nil),   // 3: conf.PageInfo
-	(*CommonResp)(nil), // 4: conf.CommonResp
-	nil,                // 5: conf.Conf.AccessTokenMapEntry
+	(HttpMethod)(0),    // 1: conf.HttpMethod
+	(*AppConf)(nil),    // 2: conf.AppConf
+	(*Conf)(nil),       // 3: conf.Conf
+	(*PageInfo)(nil),   // 4: conf.PageInfo
+	(*CommonResp)(nil), // 5: conf.CommonResp
+	nil,                // 6: conf.Conf.AccessTokenMapEntry
 }
 var file_conf_proto_depIdxs = []int32{
 	0, // 0: conf.Conf.priority:type_name -> conf.Priority
-	5, // 1: conf.Conf.access_token_map:type_name -> conf.Conf.AccessTokenMapEntry
-	1, // 2: conf.Conf.AccessTokenMapEntry.value:type_name -> conf.AppConf
+	6, // 1: conf.Conf.access_token_map:type_name -> conf.Conf.AccessTokenMapEntry
+	2, // 2: conf.Conf.AccessTokenMapEntry.value:type_name -> conf.AppConf
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
@@ -419,7 +470,7 @@ func file_conf_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_conf_proto_rawDesc), len(file_conf_proto_rawDesc)),
-			NumEnums:      1,
+			NumEnums:      2,
 			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   0,

@@ -10,6 +10,20 @@ message ChangeQpsReq {
   int32 qps = 3;
 }
 
+message OneReq {
+  conf.Conf conf = 1;
+  conf.HttpMethod httpMethod = 2;
+  // 全局方法唯一标识,使用/ocean.Api/XXX 可兼容其他接口
+  string uniKey = 3;
+  string url = 4;
+  bytes body = 5;
+  map<string, string> query = 6;
+}
+
+message OneResp {
+  bytes body = 1;
+}
+
 message ChangeQpsResp {
   int32 code = 1;
   string message = 2;

@@ -81,6 +81,135 @@ func (x *ChangeQpsReq) GetQps() int32 {
 	return 0
 }
 
+type OneReq struct {
+	state      protoimpl.MessageState `protogen:"open.v1"`
+	Conf       *Conf                  `protobuf:"bytes,1,opt,name=conf,proto3" json:"conf,omitempty"`
+	HttpMethod HttpMethod             `protobuf:"varint,2,opt,name=httpMethod,proto3,enum=conf.HttpMethod" json:"httpMethod,omitempty"`
+	// 全局方法唯一标识,使用/ocean.Api/XXX 可兼容其他接口
+	UniKey        string            `protobuf:"bytes,3,opt,name=uniKey,proto3" json:"uniKey,omitempty"`
+	Url           string            `protobuf:"bytes,4,opt,name=url,proto3" json:"url,omitempty"`
+	Body          []byte            `protobuf:"bytes,5,opt,name=body,proto3" json:"body,omitempty"`
+	Query         map[string]string `protobuf:"bytes,6,rep,name=query,proto3" json:"query,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OneReq) Reset() {
+	*x = OneReq{}
+	mi := &file_qps_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OneReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OneReq) ProtoMessage() {}
+
+func (x *OneReq) ProtoReflect() protoreflect.Message {
+	mi := &file_qps_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OneReq.ProtoReflect.Descriptor instead.
+func (*OneReq) Descriptor() ([]byte, []int) {
+	return file_qps_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *OneReq) GetConf() *Conf {
+	if x != nil {
+		return x.Conf
+	}
+	return nil
+}
+
+func (x *OneReq) GetHttpMethod() HttpMethod {
+	if x != nil {
+		return x.HttpMethod
+	}
+	return HttpMethod_Get
+}
+
+func (x *OneReq) GetUniKey() string {
+	if x != nil {
+		return x.UniKey
+	}
+	return ""
+}
+
+func (x *OneReq) GetUrl() string {
+	if x != nil {
+		return x.Url
+	}
+	return ""
+}
+
+func (x *OneReq) GetBody() []byte {
+	if x != nil {
+		return x.Body
+	}
+	return nil
+}
+
+func (x *OneReq) GetQuery() map[string]string {
+	if x != nil {
+		return x.Query
+	}
+	return nil
+}
+
+type OneResp struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Body          []byte                 `protobuf:"bytes,1,opt,name=body,proto3" json:"body,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OneResp) Reset() {
+	*x = OneResp{}
+	mi := &file_qps_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OneResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OneResp) ProtoMessage() {}
+
+func (x *OneResp) ProtoReflect() protoreflect.Message {
+	mi := &file_qps_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OneResp.ProtoReflect.Descriptor instead.
+func (*OneResp) Descriptor() ([]byte, []int) {
+	return file_qps_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *OneResp) GetBody() []byte {
+	if x != nil {
+		return x.Body
+	}
+	return nil
+}
+
 type ChangeQpsResp struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Code          int32                  `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
@@ -91,7 +220,7 @@ type ChangeQpsResp struct {
 
 func (x *ChangeQpsResp) Reset() {
 	*x = ChangeQpsResp{}
-	mi := &file_qps_proto_msgTypes[1]
+	mi := &file_qps_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -103,7 +232,7 @@ func (x *ChangeQpsResp) String() string {
 func (*ChangeQpsResp) ProtoMessage() {}
 
 func (x *ChangeQpsResp) ProtoReflect() protoreflect.Message {
-	mi := &file_qps_proto_msgTypes[1]
+	mi := &file_qps_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -116,7 +245,7 @@ func (x *ChangeQpsResp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ChangeQpsResp.ProtoReflect.Descriptor instead.
 func (*ChangeQpsResp) Descriptor() ([]byte, []int) {
-	return file_qps_proto_rawDescGZIP(), []int{1}
+	return file_qps_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ChangeQpsResp) GetCode() int32 {
@@ -143,7 +272,7 @@ type TestReq struct {
 
 func (x *TestReq) Reset() {
 	*x = TestReq{}
-	mi := &file_qps_proto_msgTypes[2]
+	mi := &file_qps_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -155,7 +284,7 @@ func (x *TestReq) String() string {
 func (*TestReq) ProtoMessage() {}
 
 func (x *TestReq) ProtoReflect() protoreflect.Message {
-	mi := &file_qps_proto_msgTypes[2]
+	mi := &file_qps_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -168,7 +297,7 @@ func (x *TestReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TestReq.ProtoReflect.Descriptor instead.
 func (*TestReq) Descriptor() ([]byte, []int) {
-	return file_qps_proto_rawDescGZIP(), []int{2}
+	return file_qps_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *TestReq) GetConf() *Conf {
@@ -195,7 +324,7 @@ type TestResp struct {
 
 func (x *TestResp) Reset() {
 	*x = TestResp{}
-	mi := &file_qps_proto_msgTypes[3]
+	mi := &file_qps_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -207,7 +336,7 @@ func (x *TestResp) String() string {
 func (*TestResp) ProtoMessage() {}
 
 func (x *TestResp) ProtoReflect() protoreflect.Message {
-	mi := &file_qps_proto_msgTypes[3]
+	mi := &file_qps_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -220,7 +349,7 @@ func (x *TestResp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TestResp.ProtoReflect.Descriptor instead.
 func (*TestResp) Descriptor() ([]byte, []int) {
-	return file_qps_proto_rawDescGZIP(), []int{3}
+	return file_qps_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *TestResp) GetCode() int32 {
@@ -248,7 +377,23 @@ const file_qps_proto_rawDesc = "" +
 	"fullMethod\x18\x01 \x01(\tR\n" +
 	"fullMethod\x12\x16\n" +
 	"\x06devKey\x18\x02 \x01(\tR\x06devKey\x12\x10\n" +
-	"\x03qps\x18\x03 \x01(\x05R\x03qps\"=\n" +
+	"\x03qps\x18\x03 \x01(\x05R\x03qps\"\x82\x02\n" +
+	"\x06OneReq\x12\x1e\n" +
+	"\x04conf\x18\x01 \x01(\v2\n" +
+	".conf.ConfR\x04conf\x120\n" +
+	"\n" +
+	"httpMethod\x18\x02 \x01(\x0e2\x10.conf.HttpMethodR\n" +
+	"httpMethod\x12\x16\n" +
+	"\x06uniKey\x18\x03 \x01(\tR\x06uniKey\x12\x10\n" +
+	"\x03url\x18\x04 \x01(\tR\x03url\x12\x12\n" +
+	"\x04body\x18\x05 \x01(\fR\x04body\x12.\n" +
+	"\x05query\x18\x06 \x03(\v2\x18.ocean.OneReq.QueryEntryR\x05query\x1a8\n" +
+	"\n" +
+	"QueryEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x1d\n" +
+	"\aOneResp\x12\x12\n" +
+	"\x04body\x18\x01 \x01(\fR\x04body\"=\n" +
 	"\rChangeQpsResp\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\x05R\x04code\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\"=\n" +
@@ -272,21 +417,28 @@ func file_qps_proto_rawDescGZIP() []byte {
 	return file_qps_proto_rawDescData
 }
 
-var file_qps_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_qps_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_qps_proto_goTypes = []any{
 	(*ChangeQpsReq)(nil),  // 0: ocean.ChangeQpsReq
-	(*ChangeQpsResp)(nil), // 1: ocean.ChangeQpsResp
-	(*TestReq)(nil),       // 2: ocean.TestReq
-	(*TestResp)(nil),      // 3: ocean.TestResp
-	(*Conf)(nil),          // 4: conf.Conf
+	(*OneReq)(nil),        // 1: ocean.OneReq
+	(*OneResp)(nil),       // 2: ocean.OneResp
+	(*ChangeQpsResp)(nil), // 3: ocean.ChangeQpsResp
+	(*TestReq)(nil),       // 4: ocean.TestReq
+	(*TestResp)(nil),      // 5: ocean.TestResp
+	nil,                   // 6: ocean.OneReq.QueryEntry
+	(*Conf)(nil),          // 7: conf.Conf
+	(HttpMethod)(0),       // 8: conf.HttpMethod
 }
 var file_qps_proto_depIdxs = []int32{
-	4, // 0: ocean.TestReq.conf:type_name -> conf.Conf
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	7, // 0: ocean.OneReq.conf:type_name -> conf.Conf
+	8, // 1: ocean.OneReq.httpMethod:type_name -> conf.HttpMethod
+	6, // 2: ocean.OneReq.query:type_name -> ocean.OneReq.QueryEntry
+	7, // 3: ocean.TestReq.conf:type_name -> conf.Conf
+	4, // [4:4] is the sub-list for method output_type
+	4, // [4:4] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_qps_proto_init() }
@@ -301,7 +453,7 @@ func file_qps_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_qps_proto_rawDesc), len(file_qps_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

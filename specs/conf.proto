@@ -9,6 +9,11 @@ enum Priority {
   High = 2;
 }
 
+enum HttpMethod {
+  Get = 0;
+  Post = 1;
+}
+
 message AppConf {
   // 必传，接口QPS限流值，首次请求时初始化限流器，修改qps重启服务生效
   uint32 qps = 1;

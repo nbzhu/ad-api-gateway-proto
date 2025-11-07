@@ -24,4 +24,5 @@ service Api {
   rpc ReportCustomGet (ReportReq) returns (ReportResp);
   rpc ChangeQps (ChangeQpsReq) returns (ChangeQpsResp);
   rpc Test (TestReq) returns (TestResp);
+  rpc One (OneReq) returns (OneResp);
 }
